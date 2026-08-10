@@ -10,13 +10,34 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libft
+
 CC = cc
 
 CFLAGS = -Werror -Wall -Wextra
 
-SRC = *.c
+HEADER = libft.h
+
+SRC = ft_memset.c
 
 OBJ = $(SRC:.c=.o)
 
-${OBJ}:
-	$(CC) $(CFLAGS) 
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	ar rc $(NAME).a $(OBJ) $(HEADER)
+
+clean:
+	$(RM) $(OBJ)
+
+fclean:
+	$(RM) $(OBJ)
+	$(RM) $(NAME).a
+
+re: fclean all
+
+test: re
+	$(CC) $(CFLAGS) -o test main.c -L. $(NAME).a 
+
+ctest: 
+	$(RM) test

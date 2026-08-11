@@ -18,7 +18,14 @@ CFLAGS = -Werror -Wall -Wextra
 
 HEADER = libft.h
 
-SRC = ft_memset.c
+SRC = ft_isascii.c \
+	  ft_memset.c \
+	  ft_toupper.c \
+	  ft_isalnum.c \
+	  ft_isdigit.c \
+	  ft_isalpha.c \
+	  ft_isprint.c \
+	  ft_tolower.c
 
 OBJ = $(SRC:.c=.o)
 

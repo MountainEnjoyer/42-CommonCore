@@ -1,5 +1,0 @@
-# TODO
-
-* Fonctions faites:
-	* memset
-

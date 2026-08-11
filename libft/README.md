@@ -9,4 +9,4 @@
 	* isprint
 
 * Fonctions en cours:
-	* memset
+	* memset (se renseigner sur l'arithmetique de pointeur)

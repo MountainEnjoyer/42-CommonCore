@@ -10,9 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+#include "libft.h"
+#include <stdio.h>
+
 int	main(int ac, char **av)
 {
-	(void)ac;
 	(void)av;
+	(void)ac;
+
+	char *s = "ozhdqhdqzudh";
+	printf("%p\n", &s);
+	char *p = memset(&s, 56, 4);
+	printf("%p\n", memset(&s, 56, 4));
+	printf("%s\n", p);
+	char *t = ft_memset(&s, 56, 4);
+	printf("%p\n", ft_memset(&s, 56, 4));
+	printf("%s\n", t);
 	return (0);
 }

@@ -10,7 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_memset()
+#include "libft.h"
+#include <stdio.h>
+
+// The memset() function fills the first n bytes of the memory area pointed to by s with the constant byte c.
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-	
+	char	*add;
+	size_t	i;
+
+	i = 0;
+	add = (char *)s;
+	while (i < n)
+	{
+		add[i] = c;
+		n--;
+		i++;
+	}
+	return ((void *)add);
 }

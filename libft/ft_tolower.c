@@ -12,6 +12,9 @@
 
 int	tolower(int c)
 {
-	c += 32;
+	if (c >= 'A' && c <= 'Z')
+	{
+		c += 32;
+	}
 	return (c);
 }

@@ -30,7 +30,8 @@ SRC = ft_isascii.c \
 	  ft_strcmp.c \
 	  ft_strlen.c \
 	  ft_strncmp.c \
-	  ft_strstr.c
+	  ft_strstr.c \
+	  ft_strdup.c 
 
 OBJ = $(SRC:.c=.o)
 

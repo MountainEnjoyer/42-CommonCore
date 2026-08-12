@@ -1,4 +1,4 @@
-# TODO PARTIE 1: 14/28
+# TODO PARTIE 1: 15/28
 
 * Fonctions testées:
 	* aucune
@@ -18,6 +18,7 @@
 	* strstr
 	* strdup
 	* strcpy
+	* strncpy
 
 * Fonctions en cours:
 	* memset (se renseigner sur l'arithmetique de pointeur)

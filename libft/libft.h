@@ -14,3 +14,4 @@ int	ft_strlen(char *s);
 char	*ft_strstr(char *str, char *to_find);
 int	ft_strncmp(char *s1, char *s2, unsigned int n);
 char	*ft_strdup(char *s);
+char *ft_strcpy(char *dst, char *src);

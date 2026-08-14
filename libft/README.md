@@ -1,4 +1,4 @@
-# TODO PARTIE 1: 15/28
+# TODO PARTIE 1: 17/28
 
 * Fonctions testées:
 	* aucune

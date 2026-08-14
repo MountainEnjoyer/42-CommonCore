@@ -3,6 +3,20 @@
 * Fonctions testées:
 	* aucune
 
+* Fonctions à faire 
+	* strstr
+	* strnstr
+	* strchr
+	* strrchr
+	* strcat
+	* strncat
+	* memcmp
+	* memchr
+	* momove
+	* memcpy
+	* memccpy
+	* bzero
+
 * Fonctions faites:
 	* toupper
 	* tolower

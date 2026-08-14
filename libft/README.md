@@ -8,8 +8,6 @@
 	* strnstr
 	* strchr
 	* strrchr
-	* strcat
-	* strncat
 	* memcmp
 	* memchr
 	* momove
@@ -33,6 +31,8 @@
 	* strdup
 	* strcpy
 	* strncpy
+	* strncat
+	* strcat
 
 * Fonctions en cours:
 	* memset (se renseigner sur l'arithmetique de pointeur)

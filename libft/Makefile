@@ -54,7 +54,8 @@ fclean:
 re: fclean all
 
 test: re
-	$(CC) $(CFLAGS) -o test main.c -L. $(NAME).a 
+	$(CC) $(CFLAGS) -o uTest Utest/test.c -L. $(NAME).a 
+	./uTest
 
 ctest: 
 	$(RM) test

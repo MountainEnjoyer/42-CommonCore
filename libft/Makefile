@@ -59,5 +59,5 @@ test: re
 	clear
 	./test_exec
 
-ctest: 
+ctest:
 	$(RM) test_exec

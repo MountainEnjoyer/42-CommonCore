@@ -31,8 +31,9 @@ int	intTesting()
 
 int	main(void)
 {
-	char zebi[10] = "zebizebib";
+	char zebi[1];
 	printf("%p\n", zebi);
-	ft_memset(&zebi, 'z', 10);
-	return (1);
+	ft_memset(&zebi, 'a', 5);
+	printf("%s", zebi);
+	return (0);
 }

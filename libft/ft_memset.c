@@ -14,20 +14,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// The memset() function fills the first n bytes of the memory area pointed to by s with the constant byte c.
-
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned long *add = (unsigned long *)s;
+	char *add = (char *)s;
 	size_t	i;
-	
-	i = n;
+
 	i = 0;
-	(void)c;
-	while (add[i] != NULL)
+	if ((size_t)ft_strlen(add) > n || n <= 0 || add[0] == 0)
+		return ((void *) s);
+	while (i < n)
 	{
-		dec_to_hex(add[i]);
-		i++;
+		add[i] = (char)c;
+		
 	}
 	return ((void *)s);
 }

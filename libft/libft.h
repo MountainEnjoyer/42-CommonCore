@@ -18,4 +18,5 @@ char	*ft_strcpy(char *dst, char *src);
 char	*ft_strncpy(size_t dsize, char dst[restrict dsize], const char *restrict src);
 char	*ft_strcat(char *dest, char *src);
 char	*ft_strncat(char *dest, char *src, unsigned int nb);
-
+void	ft_makehexa(char *str);
+void	dec_to_hex(unsigned int ascii);

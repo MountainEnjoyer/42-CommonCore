@@ -12,20 +12,21 @@
 
 #include "libft.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 // The memset() function fills the first n bytes of the memory area pointed to by s with the constant byte c.
 
 void	*ft_memset(void *s, int c, size_t n)
 {
+	unsigned long *add = (unsigned long *)s;
 	size_t	i;
-
+	
+	i = n;
 	i = 0;
-	while (i < n)
+	(void)c;
+	while (add[i] != NULL)
 	{
-		printf("%ld", i);
-		*(int *)s = c;
-		s++;
-		printf("%p\n", s);
+		dec_to_hex(add[i]);
 		i++;
 	}
 	return ((void *)s);

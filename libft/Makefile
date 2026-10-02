@@ -35,7 +35,8 @@ SRC = ft_isascii.c \
 	  ft_strcpy.c \
 	  ft_strncpy.c \
 	  ft_strcat.c \
-	  ft_strncat.c
+	  ft_strncat.c \
+	  ft_makehexa.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -55,6 +56,7 @@ re: fclean all
 
 test: re
 	$(CC) $(CFLAGS) -o test_exec unit_test/test.c -L. $(NAME).a 
+	clear
 	./test_exec
 
 ctest: 

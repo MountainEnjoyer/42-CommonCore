@@ -16,9 +16,10 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	char *add = (char *)s;
+	char *add;
 	size_t	i;
 
+	add = (char *)s;
 	i = 0;
 	if ((size_t)ft_strlen(add) > n || n <= 0 || add[0] == 0)
 		return ((void *) s);
@@ -27,5 +28,5 @@ void	*ft_memset(void *s, int c, size_t n)
 		add[i] = (char)c;
 		
 	}
-	return ((void *)s);
+	return ((void *)add);
 }

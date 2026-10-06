@@ -31,9 +31,9 @@ int	intTesting()
 
 int	main(void)
 {
-	char zebi[1];
-	printf("%p\n", zebi);
-	ft_memset(&zebi, 'a', 5);
-	printf("%s", zebi);
+	char *zebi = "testset";
+	printf("%s\n", zebi);
+	char *dest = malloc(sizeof(char) * 5);
+	printf("%s", (char *)ft_memcpy(5, dest, zebi));
 	return (0);
 }

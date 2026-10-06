@@ -36,8 +36,8 @@ SRC = ft_isascii.c \
 	  ft_strncpy.c \
 	  ft_strcat.c \
 	  ft_strncat.c \
-	  ft_makehexa.c
-
+	  ft_makehexa.c \
+	  ft_memcpy.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

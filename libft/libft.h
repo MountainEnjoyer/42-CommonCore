@@ -32,3 +32,4 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb);
 void	ft_makehexa(char *str);
 void	dec_to_hex(unsigned int ascii);
 void	*ft_memset(void *s, int c, size_t n);
+void	*ft_memcpy(size_t n, char dest[n], char src[n]);

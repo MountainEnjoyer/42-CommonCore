@@ -35,5 +35,6 @@ int	main(void)
 	printf("%s\n", zebi);
 	char *dest = malloc(sizeof(char) * 5);
 	printf("%s", (char *)ft_memcpy(5, dest, zebi));
+	printf("%s", dest);
 	return (0);
 }

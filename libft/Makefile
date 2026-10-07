@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefile                                            :+:    :+:            #
 #                                                     +:+ +:+         +:+      #
 #    By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/10 17:31:51 by zchauve           #+#    #+#              #
-#    Updated: 2026/08/10 17:31:52 by zchauve          ###   ########.fr        #
+#    Updated: 2026/10/07 17:05:08 by zchauve        ########   odam.nl         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,10 @@ SRC = ft_isascii.c \
 	  ft_strcat.c \
 	  ft_strncat.c \
 	  ft_makehexa.c \
-	  ft_memcpy.c
+	  ft_memcpy.c \
+	  ft_memmove.c \
+	  ft_bzero.c
+
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

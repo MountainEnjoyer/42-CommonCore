@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   libft.h                                             :+:    :+:           */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 10:49:10 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/02 10:49:12 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/07 17:05:30 by zchauve        ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,6 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb);
 void	ft_makehexa(char *str);
 void	dec_to_hex(unsigned int ascii);
 void	*ft_memset(void *s, int c, size_t n);
-void	*ft_memcpy(size_t n, char dest[n], char src[n]);
+void	*ft_memcpy(size_t n, void *dest, void *src);
+void	*ft_memmove(void *dest, const void *src, size_t n);
+void	ft_bzero(void *s, size_t n);

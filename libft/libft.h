@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 10:49:10 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/07 17:39:30 by zchauve        ########   odam.nl        */
+/*   Updated: 2026/10/07 20:03:13 by zchauve        ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_atoi(const char *s);
 int	ft_strcmp(char *s1, char *s2);
 int	ft_strlen(char *s);
 int	ft_strncmp(char *s1, char *s2, unsigned int n);
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
 char		*ft_strstr(char *str, char *to_find);
 char		*ft_strdup(char *s);
 char		*ft_strcpy(char *dst, char *src);

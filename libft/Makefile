@@ -6,7 +6,7 @@
 #    By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/10 17:31:51 by zchauve           #+#    #+#              #
-#    Updated: 2026/10/07 17:05:08 by zchauve        ########   odam.nl         #
+#    Updated: 2026/10/07 17:39:46 by zchauve        ########   odam.nl         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SRC = ft_isascii.c \
 	  ft_makehexa.c \
 	  ft_memcpy.c \
 	  ft_memmove.c \
-	  ft_bzero.c
+	  ft_bzero.c \
+	  ft_memchr.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 10:49:10 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/07 17:05:30 by zchauve        ########   odam.nl        */
+/*   Updated: 2026/10/07 17:39:30 by zchauve        ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,4 @@ void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memcpy(size_t n, void *dest, void *src);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	ft_bzero(void *s, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);

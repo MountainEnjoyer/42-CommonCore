@@ -6,12 +6,13 @@
 /*   By: zchauve <marvin@42.fr>                        +#+                    */
 /*                                                    +#+                     */
 /*   Created: 2026/10/07 16:38:11 by zchauve        #+#    #+#                */
-/*   Updated: 2026/10/07 17:33:01 by zchauve        ########   odam.nl        */
+/*   Updated: 2026/10/08 17:52:05 by zchauve        ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <strings.h>
 #include <stdio.h>
+
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char *p;

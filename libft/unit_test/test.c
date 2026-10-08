@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 17:25:00 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/08 18:23:16 by zchauve        ########   odam.nl        */
+/*   Updated: 2026/10/08 19:08:08 by zchauve        ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int	intTesting()
 
 int	main(void)
 {
-	char *test = (char *)ft_calloc(15, sizeof(char));
-	if (test[0] == 0 && test[1] == 0 && test[2] == 0)
-		printf("yes");
+	char str[] = "akuwh5dkauwdhkawu5hdkauwdagh5awdaw";
+	printf("%s\n%s", ft_strchr(str, '5'), ft_strrchr(str, '5'));
 	return(0);
 }

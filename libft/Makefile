@@ -6,7 +6,7 @@
 #    By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/10 17:31:51 by zchauve           #+#    #+#              #
-#    Updated: 2026/10/08 18:36:30 by zchauve        ########   odam.nl         #
+#    Updated: 2026/10/08 19:02:54 by zchauve        ########   odam.nl         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,9 @@ SRC = ft_isascii.c \
 	  ft_bzero.c \
 	  ft_memchr.c \
 	  ft_memcmp.c \
-	  ft_calloc.c
+	  ft_calloc.c \
+	  ft_strchr.c \
+	  ft_strrchr.c
 
 OBJ = $(SRC:.c=.o)
 

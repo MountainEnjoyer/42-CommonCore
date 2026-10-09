@@ -6,11 +6,11 @@
 #    By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/10 17:31:51 by zchauve           #+#    #+#              #
-#    Updated: 2026/10/09 16:48:28 by zchauve        ########   odam.nl         #
+#    Updated: 2026/10/09 17:08:16 by zchauve        ########   odam.nl         #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
+NAME = libft.a
 
 CC = cc
 
@@ -52,19 +52,19 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME).a $(OBJ) $(HEADER)
+	ar rc $(NAME) $(OBJ) $(HEADER)
 
 clean:
 	$(RM) $(OBJ)
 
 fclean:
 	$(RM) $(OBJ)
-	$(RM) $(NAME).a
+	$(RM) $(NAME)
 
 re: fclean all
 
 test: re
-	$(CC) $(CFLAGS) -o test_exec unit_test/test.c -lbsd -L. $(NAME).a 
+	$(CC) $(CFLAGS) -o test_exec unit_test/test.c -lbsd -L. $(NAME) 
 	clear
 	./test_exec
 

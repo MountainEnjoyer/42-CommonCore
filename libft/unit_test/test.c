@@ -12,7 +12,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 #include "../libft.h"
 #include <bsd/string.h>
 
@@ -34,9 +33,8 @@ int	intTesting()
 int	main(void)
 {
 	char str[] = "akuwh5dkauwdhkawu5hdkauwdagh5awda";
-	char *dst = malloc(sizeof(char) * 18);
-	printf("%zu, %s\n", strlcpy(dst, str, 33), dst);
-	char *dest = calloc(12, sizeof(char));
-	printf("%zu, %s\n", ft_strlcpy(dest, str, 33), dest);
+	char dst[] = "zizi";
+	printf("%zu, %s\n", strlcat(dst, str, 4), dst);
+	printf("%zu, %s\n", (size_t)ft_strlcat(dst, str, 4), dst);
 	return(0);
 }

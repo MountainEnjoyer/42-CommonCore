@@ -6,7 +6,7 @@
 #    By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/10 17:31:51 by zchauve           #+#    #+#              #
-#    Updated: 2026/10/09 17:08:16 by zchauve        ########   odam.nl         #
+#    Updated: 2026/10/09 19:46:47 by zchauve        ########   odam.nl         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ SRC = ft_isascii.c \
 	  ft_calloc.c \
 	  ft_strchr.c \
 	  ft_strrchr.c \
-	  ft_strlcpy.c
+	  ft_strlcpy.c \
+	  ft_strlcat.c
 
 OBJ = $(SRC:.c=.o)
 

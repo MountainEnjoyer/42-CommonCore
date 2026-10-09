@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 10:49:10 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/09 16:44:48 by zchauve        ########   odam.nl        */
+/*   Updated: 2026/10/09 19:46:13 by zchauve        ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,5 @@ void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strrchr(char *s, int c);
 char	*ft_strchr(char *s, int c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
+

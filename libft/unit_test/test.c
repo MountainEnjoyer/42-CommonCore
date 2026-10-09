@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 17:25:00 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/08 19:08:08 by zchauve        ########   odam.nl        */
+/*   Updated: 2026/10/09 16:49:54 by zchauve        ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "../libft.h"
+#include <bsd/string.h>
 
 int	intArrTesting()
 {
@@ -32,7 +33,8 @@ int	intTesting()
 
 int	main(void)
 {
-	char str[] = "akuwh5dkauwdhkawu5hdkauwdagh5awdaw";
-	printf("%s\n%s", ft_strchr(str, '5'), ft_strrchr(str, '5'));
+	char str[] = "akuwh5dkauwdhkawu5hdkauwdagh5awda";
+	char dst[15];
+	printf("%zu\n%zu", ft_strlcpy(dst, str, 15), strlcpy(dst ,str, 15));
 	return(0);
 }

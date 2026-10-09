@@ -6,7 +6,7 @@
 #    By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/10 17:31:51 by zchauve           #+#    #+#              #
-#    Updated: 2026/10/08 19:02:54 by zchauve        ########   odam.nl         #
+#    Updated: 2026/10/09 16:48:28 by zchauve        ########   odam.nl         #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ SRC = ft_isascii.c \
 	  ft_memcmp.c \
 	  ft_calloc.c \
 	  ft_strchr.c \
-	  ft_strrchr.c
+	  ft_strrchr.c \
+	  ft_strlcpy.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -63,7 +64,7 @@ fclean:
 re: fclean all
 
 test: re
-	$(CC) $(CFLAGS) -o test_exec unit_test/test.c -L. $(NAME).a 
+	$(CC) $(CFLAGS) -o test_exec unit_test/test.c -lbsd -L. $(NAME).a 
 	clear
 	./test_exec
 

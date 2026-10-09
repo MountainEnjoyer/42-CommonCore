@@ -47,7 +47,8 @@ SRC = ft_isascii.c \
 	  ft_strrchr.c \
 	  ft_strlcpy.c \
 	  ft_strlcat.c \
-	  ft_substr.c
+	  ft_substr.c \
+	  ft_strjoin.c
 
 OBJ = $(SRC:.c=.o)
 

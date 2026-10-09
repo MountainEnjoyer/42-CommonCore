@@ -33,6 +33,7 @@ int	intTesting()
 int	main(void)
 {
     char src[] = "finsedksefg";
-    printf("%s\n", ft_substr(src, 3, 2));
+    char dst[] = "ziziiiiii";
+    printf("%s\n", ft_strjoin(src, dst));
 	return(0);
 }

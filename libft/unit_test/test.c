@@ -32,9 +32,11 @@ int	intTesting()
 
 int	main(void)
 {
-	char str[] = "akuwh5dkauwdhkawu5hdkauwdagh5awda";
-	char dst[] = "zizi";
-	printf("%zu, %s\n", strlcat(dst, str, 4), dst);
-	printf("%zu, %s\n", (size_t)ft_strlcat(dst, str, 4), dst);
+    char src[] = "finsedksefg";
+    char dst[] = "debut";
+    printf("%zu, %s\n", strlcat(dst, src, 3), dst);
+    char sorc[] = "finsedksefg";
+    char dest[] = "debut";
+    printf("%zu, %s\n", ft_strlcat(dest, sorc, 3), dest);
 	return(0);
 }

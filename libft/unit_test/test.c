@@ -33,10 +33,6 @@ int	intTesting()
 int	main(void)
 {
     char src[] = "finsedksefg";
-    char dst[] = "debut";
-    printf("%zu, %s\n", strlcat(dst, src, 3), dst);
-    char sorc[] = "finsedksefg";
-    char dest[] = "debut";
-    printf("%zu, %s\n", ft_strlcat(dest, sorc, 3), dest);
+    printf("%s\n", ft_substr(src, 3, 2));
 	return(0);
 }

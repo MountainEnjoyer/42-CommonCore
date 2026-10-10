@@ -32,8 +32,8 @@ int	intTesting()
 
 int	main(void)
 {
-    char src[] = "finsedksefg";
-    char dst[] = "ziziiiiii";
-    printf("%s\n", ft_strjoin(src, dst));
+    char src[] = "fi";
+    char dst[] = "zizfiifiiii";
+    printf("%s\n", ft_strtrim(dst, src));
 	return(0);
 }

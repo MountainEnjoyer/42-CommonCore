@@ -12,7 +12,26 @@
 
 #include <string.h>
 
-char    *strnstr(const char *big, const char *little, size_t len)
+char    *ft_strnstr(const char *big, const char *little, size_t len)
 {
-    
+    size_t i;
+    size_t y;
+    char *p1;
+
+    i = 0;
+    p1 = (char *)big;
+    if (little[0] == '\0')
+        return (NULL);
+    while (p1[i] && i < len)
+    {
+        y = 0;
+        while (p1[i + y] == little[y])
+        {
+            y++;
+        }
+        if (y == len - 1)
+            return (&p1[i]);
+        i++;
+    }
+    return (p1);
 }

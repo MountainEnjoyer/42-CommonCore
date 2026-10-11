@@ -12,6 +12,7 @@
 
 #include <stdlib.h>
 #include "libft.h"
+#include <bsd/string.h>
 
 char    *ft_strtrim(char const *s1, char const *set)
 {

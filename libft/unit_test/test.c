@@ -33,7 +33,7 @@ int	intTesting()
 int	main(void)
 {
     char src[] = "fi";
-    char dst[] = "zizfiifiiii";
+    char dst[] = "fiawjdgzffi";
     printf("%s\n", ft_strtrim(dst, src));
 	return(0);
 }

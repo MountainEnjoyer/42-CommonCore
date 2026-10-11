@@ -15,23 +15,12 @@
 
 char    *ft_strtrim(char const *s1, char const *set)
 {
-	char *new;
-	int i;
-	int y;
+    char *new;
 
-	new = malloc(sizeof(char) * ft_strlen((char *)s1));
-	i = 0;
-	while (s1[i])
-	{
-		y = 0;
-		while (set[y])
-		{
-			if (s1[i] == set[y])
-				i++;
-			y++;
-		}
-		new[i] = (char)s1[i];
-		i++;
-	}
-	return (new);
+    new = malloc(sizeof(char) * ft_strlen((char *)s1));
+    if (s1 && ft_strnstr(s1, set, ft_strlen((char *)set)))
+    {
+        new = ft_strnstr(s1, set, ft_strlen((char *)set));
+    }
+    return (new);
 }

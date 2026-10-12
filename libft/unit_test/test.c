@@ -32,9 +32,9 @@ int	intTesting()
 
 int	main(void)
 {
-    char c = 'c';
-    char dst[] = "awjdcgzawhhcdiific";
-    char **split = ft_split(dst, c);
+	char dst[] = "alwdhawkduj0alwdhhalwidawda0wD KHdkAHWDiuauhw0dLIUAHWDiuaHWDiu0AHWDiuHA WpiiUAWHdiuAHW0diuaHHWDpiuAHWDPOu0ahwpodjaowidj AOwduAP0OWdhpaIUUHDaIPUW0D";
+	char c = '0';
+    char **split = ft_split(dst, c) ;
 
     int i = 0;
     while (split[i])
@@ -42,5 +42,7 @@ int	main(void)
         printf("%s\n", split[i]);
         i++;
     }
+    free(split);
+
 	return(0);
 }

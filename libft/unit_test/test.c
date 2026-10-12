@@ -32,17 +32,6 @@ int	intTesting()
 
 int	main(void)
 {
-	char dst[] = "alwdhawkduj0alwdhhalwidawda0wD KHdkAHWDiuauhw0dLIUAHWDiuaHWDiu0AHWDiuHA WpiiUAWHdiuAHW0diuaHHWDpiuAHWDPOu0ahwpodjaowidj AOwduAP0OWdhpaIUUHDaIPUW0D";
-	char c = '0';
-    char **split = ft_split(dst, c) ;
-
-    int i = 0;
-    while (split[i])
-    {
-        printf("%s\n", split[i]);
-        i++;
-    }
-    free(split);
-
+	printf("%s\n", ft_itoa(-2147483648));
 	return(0);
 }

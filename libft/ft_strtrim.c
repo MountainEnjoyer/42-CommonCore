@@ -12,16 +12,15 @@
 
 #include <stdlib.h>
 #include "libft.h"
-#include <bsd/string.h>
 
 char    *ft_strtrim(char const *s1, char const *set)
 {
     char *new;
+    char *p1;
+    char *p2;
+
 
     new = malloc(sizeof(char) * ft_strlen((char *)s1));
-    if (s1 && ft_strnstr(s1, set, ft_strlen((char *)set)))
-    {
-        new = ft_strnstr(s1, set, ft_strlen((char *)set));
-    }
+
     return (new);
 }

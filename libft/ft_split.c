@@ -14,32 +14,51 @@
 #include <stdlib.h>
 #include "libft.h"
 
-char    **ft_split(char const *s, char c)
+static char *alouette(char **arr, char *p1, char *p2, int index)
 {
     int i;
-    int y;
-    int j;
-    char *p1;
-    char **new;
 
     i = 0;
-    y = 0;
+    arr[index] = malloc(sizeof(char) * (p1 - p2));
+    if (!arr)
+    {
+        while (arr[i])
+        {
+            free(arr[i]);
+            i++;
+        }
+        free(arr);
+        return (NULL);
+    }
+    else
+    {
+        arr[index] = ft_strncpy(arr[index], (const char*)p2, p1 - p2);
+        return (arr[index]);
+    }
+}
+
+char    **ft_split(char const *s, char c)
+{
+    int j;
+    char *p1;
+    char *p2;
+    char **new;
+
     j = 0;
     p1 = (char *)s;
+    p2 = (char *)s;
     new = malloc(sizeof(char **));
-    if (s[0] == '\0' || c == '\0')
-        return (NULL);
-    while (p1[i])
+    if (s[0] == '\0' || c == '\0' || !new)
+        return ((void *)0);
+    while (*p1++)
     {
-        if (p1[i] == c)
+        if (*p1 == c)
         {
-            new[y] = malloc(sizeof(char) * (i - j));
-            new[y] = ft_strncpy(new[y], &s[j], i - j + 1);
-            y++;
-            j = i + 1;
+            new[j] = alouette(new, p1, p2, j);
+            j++;
+            p2 = p1 + 1;
         }
-        i++;
     }
-    new[y] = NULL;
+    new[j] = NULL;
     return (new);
 }

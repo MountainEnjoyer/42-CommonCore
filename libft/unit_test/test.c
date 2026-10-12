@@ -32,8 +32,15 @@ int	intTesting()
 
 int	main(void)
 {
-    char src[] = "fi";
-    char dst[] = "fiawjdgzawhhdiifi";
-    printf("%s\n", ft_strtrim(dst, src));
+    char c = 'c';
+    char dst[] = "awjdcgzawhhcdiific";
+    char **split = ft_split(dst, c);
+
+    int i = 0;
+    while (split[i])
+    {
+        printf("%s\n", split[i]);
+        i++;
+    }
 	return(0);
 }

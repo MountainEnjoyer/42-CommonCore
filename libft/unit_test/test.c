@@ -32,6 +32,7 @@ int	intTesting()
 
 int	main(void)
 {
-	printf("%s\n", ft_itoa(-2147483648));
+	char str[] = "LwWhaQd1aw33d1354";
+	printf("%s\n", ft_strmapi(str, (char (*)(unsigned int, char))ft_tolower));
 	return(0);
 }

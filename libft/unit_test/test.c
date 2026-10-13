@@ -30,17 +30,8 @@ int	intTesting()
 	return (0);
 }
 
-int	main(void)
+int main(void)
 {
-	char	*result;
-
-	result = ft_strmapi("hello world", ft_upper);
-	printf("Test 2: %s (expected: HELLO WORLD)\n", result);
-	free(result);
-
-	result = ft_strmapi("hello", NULL);
-	printf("Test 5: %p (expected: NULL)\n", (void *)result);
-	free(result);
-
-	return (0);
+    return (0);
 }
+

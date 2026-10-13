@@ -10,17 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdlib.h>
 #include "libft.h"
-/*
-char    *ft_strtrim(char const *s1, char const *set)
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
-    char *new;
-    //char *p1;
-    //har *p2;
+	char *p1;
+	char *p2;
+	char *p3;
+	char *res;
 
-    
-    new = malloc(sizeof(char) * ft_strlen((char *)s1));
-
-    return (new);
-}*/
+	p1 = (char *)s1;
+	p2 = (char *)s1;
+	p3 = (char *)set;
+	res = malloc(sizeof(char) * (ft_strlen((char *)s1) + 1));
+	if (!res)
+		return (NULL);
+	while (*p1++)
+	{
+		p1 = ft_strstr(p1, p3);
+		res = p1;
+	}
+	return (res);
+}

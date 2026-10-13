@@ -9,6 +9,8 @@
 /*   Updated: 2026/10/09 20:42:49 by zchauve        ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef LIBFT_H
+# define LIBFT_H
 
 #include <stddef.h>
 #include <string.h>
@@ -54,3 +56,5 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+#endif

@@ -57,7 +57,7 @@ SRC = ft_isascii.c \
 	  ft_putstr_fd.c \
 	  ft_putendl_fd.c \
 	  ft_putnbr_fd.c \
-	  ft_strmapi.c
+	  ft_strmapi.c 
 
 OBJ = $(SRC:.c=.o)
 
@@ -76,7 +76,7 @@ fclean:
 re: fclean all
 
 test: re
-	$(CC) $(CFLAGS) -o test_exec unit_test/test.c -lbsd -L. $(NAME) 
+	$(CC) $(CFLAGS) unit_test/test.c $(NAME) -o test_exec
 	clear
 	./test_exec
 

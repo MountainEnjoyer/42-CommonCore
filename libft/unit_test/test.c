@@ -32,8 +32,8 @@ int	intTesting()
 
 int main(void)
 {
-	char set[] = "fi";
-	char test[] = "ififiiffiaaaafififaaaaaaaaaaaaaaaafifiaaaaaaififififi";
+	char set[] = "";
+	char test[] = "zqdq";
 	char *s = ft_strtrim(test, set);
 	printf("%s\n", s);
     return (0);

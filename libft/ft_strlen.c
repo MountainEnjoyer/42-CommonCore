@@ -12,9 +12,12 @@
 
 int	ft_strlen(char *s)
 {
-	int	i;
+	char *p;
+	int i;
 
-	i = -1;
-	while (s[i++]);
+	i = 0;
+	p = (char *)s;
+	while (p[i])
+		i++;
 	return (i);
 }

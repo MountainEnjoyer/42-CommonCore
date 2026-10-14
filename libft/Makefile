@@ -77,7 +77,7 @@ fclean:
 re: fclean all
 
 test: re
-	$(CC) $(CFLAGS) unit_test/test.c $(NAME) -o test_exec
+	$(CC) $(CFLAGS) -g unit_test/test.c $(NAME) -o test_exec
 	clear
 	./test_exec
 

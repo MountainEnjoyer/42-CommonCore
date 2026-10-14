@@ -30,12 +30,48 @@ int	intTesting()
 	return (0);
 }
 
-int main(void)
+void	print_list(t_list *lst)
 {
-	char set[] = "";
-	char test[] = "zqdq";
-	char *s = ft_strtrim(test, set);
-	printf("%s\n", s);
-    return (0);
+	while (lst)
+	{
+		printf("[%s] -> ", (char *)lst->content);
+		lst = lst->next;
+	}
+	printf("NULL\n");
 }
 
+void	free_list(t_list *lst)
+{
+	t_list	*next;
+
+	while (lst)
+	{
+		next = lst->next;
+		free(lst);
+		lst = next;
+	}
+}
+
+int	main(void)
+{
+	t_list	*head;
+
+	head = NULL;
+	printf("Empty list: ");
+	print_list(head);
+
+	ft_lstadd_front(&head, ft_lstnew("third"));
+	printf("Add to empty list: ");
+	print_list(head);
+
+	ft_lstadd_front(&head, ft_lstnew("second"));
+	printf("Add second: ");
+	print_list(head);
+
+	ft_lstadd_front(&head, ft_lstnew("first"));
+	printf("Add first: ");
+	print_list(head);
+
+	free_list(head);
+	return (0);
+}

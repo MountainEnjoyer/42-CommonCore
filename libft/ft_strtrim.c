@@ -13,24 +13,32 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
+
+static int	ft_isset(char c, const char *set)
+{
+	int	i;
+
+	i = 0;
+	while (set[i])
+	{
+		if (c == set[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char *p1;
 	char *p2;
-	char *p3;
-	char *res;
 
 	p1 = (char *)s1;
-	p2 = (char *)s1;
-	p3 = (char *)set;
-	res = malloc(sizeof(char) * (ft_strlen((char *)s1) + 1));
-	if (!res)
-		return (NULL);
-	while (*p1++)
-	{
-		p1 = ft_strstr(p1, p3);
-		res = p1;
-	}
-	return (res);
+	while (ft_isset(*p1, set) && *p1)
+		p1++;
+	p2 = (char *)s1 + ft_strlen((char *)s1) - 1;
+	while (ft_isset(*p2, set) && *p2)
+		p2--;
+	return (ft_substr((char const *)p1, 0, (p2 - p1) + 1));
 }

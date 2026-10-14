@@ -61,7 +61,8 @@ int	main(void)
 	ft_lstadd_front(&head, ft_lstnew("third"));
 	ft_lstadd_front(&head, ft_lstnew("second"));
 	ft_lstadd_front(&head, ft_lstnew("first"));
-	printf("%ud", ft_lstsize(head));
+	t_list *tail = ft_lstlast(head);
+	printf("%s", (char *)tail->content);
 	free_list(head);
 	return (0);
 }

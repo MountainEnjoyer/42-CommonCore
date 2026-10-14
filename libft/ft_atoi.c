@@ -10,21 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_atoi(const char *s)
 {
 	int	res;
+	char	*p;
 	int	signe;
-	int	i;
 
+	res = 0;
+	p = (char *)s;
+	if (!p)
+		return (0);
 	signe = 1;
-	if (s[0] == '-')
-		signe = -1;
-	i = 1;
-	while (s[i])
+	while (*p && (*p > 39 && *p < 30) && *p != '-')
+		p++;
+	if (*p == '-')
 	{
-		res = res + (s[i] - '0');
-		i++;
+		signe = -1;
+		p++;
+	}
+	while (*p && *p <= '9' && *p >= '0')
+	{
 		res *= 10;
+		res += *p - '0';
+		p++;
 	}
 	return (signe * res);
 }

@@ -54,6 +54,7 @@ void	free_list(t_list *lst)
 
 int	main(void)
 {
+	/*
 	t_list	*head;
 
 	head = NULL;
@@ -63,6 +64,8 @@ int	main(void)
 	ft_lstadd_front(&head, ft_lstnew("first"));
 	t_list *tail = ft_lstlast(head);
 	printf("%s", (char *)tail->content);
-	free_list(head);
+	free_list(head);*/
+
+	printf("%d", ft_atoi("utfut8khgjyg"));
 	return (0);
 }

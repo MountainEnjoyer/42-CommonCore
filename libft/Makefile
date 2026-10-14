@@ -16,8 +16,6 @@ CC = cc
 
 CFLAGS = -Werror -Wall -Wextra -g
 
-HEADER = libft.h
-
 SRC = ft_isascii.c \
 	  ft_memset.c \
 	  ft_toupper.c \
@@ -69,7 +67,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ) $(HEADER)
+	ar rc $(NAME) $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
@@ -81,7 +79,7 @@ fclean:
 re: fclean all
 
 test: re
-	$(CC) $(CFLAGS) -g unit_test/test.c $(NAME) -o test_exec
+	$(CC) $(CFLAGS) -g unit_test/test.c libft.h $(NAME) -o test_exec
 	clear
 	./test_exec
 

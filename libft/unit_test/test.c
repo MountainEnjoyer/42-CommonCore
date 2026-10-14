@@ -57,21 +57,11 @@ int	main(void)
 	t_list	*head;
 
 	head = NULL;
-	printf("Empty list: ");
-	print_list(head);
 
 	ft_lstadd_front(&head, ft_lstnew("third"));
-	printf("Add to empty list: ");
-	print_list(head);
-
 	ft_lstadd_front(&head, ft_lstnew("second"));
-	printf("Add second: ");
-	print_list(head);
-
 	ft_lstadd_front(&head, ft_lstnew("first"));
-	printf("Add first: ");
-	print_list(head);
-
+	printf("%ud", ft_lstsize(head));
 	free_list(head);
 	return (0);
 }

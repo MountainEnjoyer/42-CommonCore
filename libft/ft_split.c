@@ -49,7 +49,7 @@ static char	*alouette(char **arr, char *p1, char *p2, int index)
 	}
 	else
 	{
-		arr[index] = ft_strncpy(arr[index], (const char*)p2, p1 - p2);
+		ft_strlcpy(arr[index], (const char*)p2, p1 - p2);
 		return (arr[index]);
 	}
 }

@@ -13,17 +13,27 @@
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(char *s)
+char	*ft_strdup(const char *s)
 {
 	int	len;
 	int	i;
 	char	*dup;
 
-	len = ft_strlen(s);
+	if (!s)
+		return (NULL);
+	len = ft_strlen((char *)s);
 	dup = (char *)malloc(len * sizeof(char));
-	i = -1;
-	while (i++ < len)
+	if (!dup)
+	{
+		free(dup);
+		return (NULL);
+	}
+	i = 0;
+	while (i < len)
+	{
 		dup[i] = s[i];
+		i++;
+	}
 	dup[i] = '\0';
 	return (dup);
 }

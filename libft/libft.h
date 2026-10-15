@@ -34,7 +34,7 @@ size_t	ft_strlen(char *s);
 int	ft_strncmp(char *s1, char *s2, unsigned int n);
 int	ft_memcmp(const void *s1, const void *s2, size_t n);
 char		*ft_strstr(char *str, char *to_find);
-char		*ft_strdup(char *s);
+char		*ft_strdup(const char *s);
 char		*ft_strcpy(char *dst, char *src);
 char	*ft_strncpy(char *dst, const char *src, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);

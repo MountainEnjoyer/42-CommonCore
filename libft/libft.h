@@ -40,8 +40,6 @@ char	*ft_strncpy(char *dst, const char *src, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strcat(char *dest, char *src);
 char	*ft_strncat(char *dest, char *src, unsigned int nb);
-void	ft_makehexa(char *str);
-void	dec_to_hex(unsigned int ascii);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memcpy(size_t n, void *dest, void *src);
 void	*ft_memmove(void *dest, const void *src, size_t n);
@@ -67,5 +65,6 @@ t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 unsigned int	ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif

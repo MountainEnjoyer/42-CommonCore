@@ -12,14 +12,16 @@
 
 #include <string.h>
 
-void	*ft_memcpy(size_t n, void *dest, void *src)
+void	*ft_memcpy(void *dest, void const *src, size_t n)
 {
-	char *d;
-	char *s;
-	size_t i;	
+	char	*d;
+	char	*s;
+	size_t	i;
 
 	d = (char *)dest;
 	s = (char *)src;
+	if (!d || !s)
+		return (NULL);
 	i = 0;
 	while (i < n && s[i]) {
 		d[i] = s[i];

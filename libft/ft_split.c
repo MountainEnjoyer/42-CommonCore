@@ -64,7 +64,7 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	p1 = (char *)s;
 	p2 = (char *)s;
-	new = malloc(sizeof(char *) * wcount((char *)s, c));
+	new = malloc(sizeof(char *) * wcount((char *)s, c) + 1);
 	if (s[0] == '\0' || c == '\0' || !new)
 		return ((void *)0);
 	if (*p2 == c)

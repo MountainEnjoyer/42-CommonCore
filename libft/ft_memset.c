@@ -21,12 +21,13 @@ void	*ft_memset(void *s, int c, size_t n)
 
 	add = (char *)s;
 	i = 0;
-	if ((size_t)ft_strlen(add) > n || n <= 0 || add[0] == 0)
+	if (ft_strlen(add) >= n || n <= 0 || !add)
 		return ((void *) s);
-	while (i < n)
+	while (i < n )
 	{
-		add[i] = (char)c;
-		
+		add[i] = (unsigned char)c;
+		i++;
 	}
-	return ((void *)s);
+	add[i] = '\0';
+	return ((void *)add);
 }

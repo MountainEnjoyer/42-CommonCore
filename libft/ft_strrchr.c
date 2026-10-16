@@ -11,21 +11,29 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
-char	*ft_strrchr(char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int i;
-	int count;
+	size_t i;
+	size_t count;
+	char *p;
+	int found;
 
 	i = 0;
+	found = 0;
 	count = 0;
-	while (s[i])
+	p = (char *)s;
+	while (i <= ft_strlen(p))
 	{
-		if (s[i] == c)
+		if ((unsigned char)p[i] == (unsigned char)c)
+		{
 			count = i;
+			found = 1;
+		}
 		i++;
 	}
-	if (count == 0)
+	if (found == 0)
 		return(NULL);
-	return (&s[count]);
+	return (&p[count]);
 }

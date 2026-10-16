@@ -38,7 +38,7 @@ static char	*alouette(char **arr, char *p1, char *p2, int index)
 	int i;
 
 	i = 0;
-	arr[index] = malloc(sizeof(char) * (p1 - p2));
+	arr[index] = malloc(sizeof(char) * (p1 - p2) + 1);
 	if (!arr[index])
 	{
 		while (arr[i])
@@ -51,7 +51,7 @@ static char	*alouette(char **arr, char *p1, char *p2, int index)
 	}
 	else
 	{
-		ft_strlcpy(arr[index], (const char*)p2, p1 - (p2 + 1));
+		ft_strlcpy(arr[index], (const char*)p2, (p1 - p2) + 1);
 		return (arr[index]);
 	}
 }
@@ -73,7 +73,7 @@ char	**ft_split(char const *s, char c)
 		p2++;
 	while (*p1++)
 	{
-		if (*p1 == c && *p1)
+		if (*p1 == c || (p1 + 2) == NULL)
 		{
 			new[j] = alouette(new, p1, p2, j);
 			j++;

@@ -35,14 +35,25 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*p1;
 	char	*p2;
+	char	*res;
 
 	if (!s1)
 		return (NULL);
 	p1 = (char *)s1;
-	p2 = (char *)s1 + (ft_strlen((char *)s1) - 1);
+	p2 = (char *)s1 + 1;
+	if (p2[1])
+		p2 = (char *)s1 + (ft_strlen((char *)s1) - 1);
 	while (ft_isset(*p1, set) && *p1)
 		p1++;
 	while (ft_isset(*p2, set) && *p2)
 		p2--;
-	return (ft_substr((char const *)p1, 0, (p2 - p1) + 1));
+	res = ft_substr((char const *)p1, 0, (p2 - p1) + 1);
+	return (res);
 }
+/*
+void	main(void)
+{
+	char s1[] = "a";
+	char set[] = "a";
+	ft_strtrim(s1, set);
+}*/

@@ -21,7 +21,9 @@ static int	wcount(char *s, char c)
 	int count;
 
 	i = 0;
-	count = 1;
+	count = 0;
+	if (s != NULL)
+		count = 1;
 	while (s[i])
 	{
 		if (s[i] == c && i > 0)
@@ -49,7 +51,7 @@ static char	*alouette(char **arr, char *p1, char *p2, int index)
 	}
 	else
 	{
-		ft_strlcpy(arr[index], (const char*)p2, p1 - p2);
+		ft_strlcpy(arr[index], (const char*)p2, p1 - (p2 + 1));
 		return (arr[index]);
 	}
 }
@@ -65,19 +67,27 @@ char	**ft_split(char const *s, char c)
 	p1 = (char *)s;
 	p2 = (char *)s;
 	new = malloc(sizeof(char *) * wcount((char *)s, c) + 1);
-	if (s[0] == '\0' || c == '\0' || !new)
-		return ((void *)0);
+	if (!s || !new)
+		return (NULL);
 	if (*p2 == c)
 		p2++;
 	while (*p1++)
 	{
-		if (*p1 == c && *p1 > 0)
+		if (*p1 == c && *p1)
 		{
 			new[j] = alouette(new, p1, p2, j);
 			j++;
-			p2 = p1 + 1;
+			p2 = (p1 + 1);
 		}
 	}
 	new[j] = NULL;
 	return (new);
 }
+/*
+void main(void)
+{
+	char src[] = "bla bla bla";
+	char dst = ' ';
+
+	ft_split(src, dst);
+}*/

@@ -24,12 +24,12 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
     {
         sLen++;
     }
-    while (i < size - 1 && src[i])
+    while (i < size - 1 && src[i] && size > 0)
     {
 		dst[i] = src[i];
 		i++;
 	}
-	while (dst[i])
+	while (dst[i] && size > 0)
 	{
 		dst[i] = '\0';
 		i++;

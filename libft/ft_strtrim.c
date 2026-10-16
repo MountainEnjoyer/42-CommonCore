@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
+/*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 22:54:11 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/09 22:55:42 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/16 14:01:42 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 static int	ft_isset(char c, const char *set)
 {
-	int	i;
-	char *ptr;
+	int		i;
+	char	*ptr;
 
 	ptr = (char *)set;
 	i = 0;
@@ -33,13 +33,13 @@ static int	ft_isset(char c, const char *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *p1;
-	char *p2;
+	char	*p1;
+	char	*p2;
 
-	if (!s1 || !set || (!s1 && !set))
+	if (!s1)
 		return (NULL);
 	p1 = (char *)s1;
-	p2 = (char *)s1 + ft_strlen((char *)s1) - 1;
+	p2 = (char *)s1 + (ft_strlen((char *)s1) - 1);
 	while (ft_isset(*p1, set) && *p1)
 		p1++;
 	while (ft_isset(*p2, set) && *p2)

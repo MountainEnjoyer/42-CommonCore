@@ -12,17 +12,27 @@
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 char    *ft_substr(char const *s, unsigned int start, size_t len)
 {
     char *sp;
     char *sub;
 
-    sp = (char *)s + start;
-    sub = malloc(sizeof(char) * len);
+	if (!s || ft_strlen((char *)s) < (size_t)start)
+		return (ft_calloc(1, sizeof(char)));
+	sp = (char *)s + start;
+    sub = ft_calloc(len + 1, sizeof(char));
 	if (!sub)
 		return (NULL);
-    ft_memcpy(len, sub, sp);
+    ft_strlcpy(sub, sp, len + 1);
     sub[len] = '\0';
     return (sub);
 }
+/*
+void main(void)
+{
+	char src[] = "iciiii laaa";
+	int start = 7;
+	printf("%s\n", ft_substr(src, start, 4));
+}*/

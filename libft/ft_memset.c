@@ -16,18 +16,15 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	char *add;
+	unsigned char *add;
 	size_t	i;
 
-	add = (char *)s;
+	add = (unsigned char *)s;
 	i = 0;
-	if (ft_strlen(add) >= n || n <= 0 || !add)
-		return ((void *) s);
-	while (i < n )
+	while (i < n)
 	{
 		add[i] = (unsigned char)c;
 		i++;
 	}
-	add[i] = '\0';
 	return ((void *)add);
 }

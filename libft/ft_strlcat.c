@@ -6,32 +6,34 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 19:23:02 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/09 19:35:10 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/16 14:37:34 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t  ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-    size_t i;
-    size_t srcLen;
-    size_t dLen;
+	size_t	i;
+	size_t	srclen;
+	size_t	dlen;
 
-    dLen = 0;
-    while (dst[dLen] && dLen < size)
-        dLen++;
-    srcLen = 0;
-    while (src[srcLen])
-        srcLen++;
-    i = 0;
-    while ((dLen + i + 1) < size && src[i])
-    {
-        dst[dLen + i] = src[i];
-        i++;
-    }
-    if (dLen <= size)
-        return (dLen + srcLen);
-    dst[dLen + i] = '\0';
-    return ((dLen + srcLen));
+	if (!src || !dst)
+		return (0);
+	dlen = 0;
+	while (dst[dlen] && dlen < size)
+		dlen++;
+	srclen = 0;
+	while (src[srclen])
+		srclen++;
+	if (size < dlen)
+		return (dlen + srclen);
+	i = 0;
+	while ((dlen + i + 1) < size && src[i] && size > 0)
+	{
+		dst[dlen + i] = src[i];
+		i++;
+	}
+	dst[dlen + i] = '\0';
+	return ((dlen + srclen));
 }

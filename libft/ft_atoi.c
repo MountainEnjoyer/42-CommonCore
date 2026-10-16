@@ -23,13 +23,15 @@ int	ft_atoi(const char *s)
 	if (!p)
 		return (0);
 	signe = 1;
-	while (*p && (*p > 39 && *p < 30) && *p != '-')
+	while (*p && (*p >= 0 && *p <= 32) && *p != '-' && *p != '+')
 		p++;
 	if (*p == '-')
 	{
 		signe = -1;
 		p++;
 	}
+	if (*p == '+')
+		p++;
 	while (*p && *p <= '9' && *p >= '0')
 	{
 		res *= 10;

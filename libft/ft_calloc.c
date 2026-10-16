@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                         ::::::::           */
-/*   ft_calloc.c                                         :+:    :+:           */
-/*                                                      +:+                   */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: zchauve <marvin@42.fr>                        +#+                    */
-/*                                                    +#+                     */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 20:23:22 by zchauve        #+#    #+#                */
-/*   Updated: 2026/10/08 18:28:11 by zchauve        ########   odam.nl        */
+/*   Updated: 2026/10/16 14:23:19 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,19 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char *alloc;
-	size_t i;
+	char	*alloc;
+	size_t	i;
 
-	if (size == 0 || nmemb == 0 || (size == 0 || nmemb == 0))
-		return(NULL);
+	if (size == 0 || nmemb == 0 || (nmemb * size) >= 4294967295)
+		return (malloc(1));
 	alloc = malloc(nmemb * size);
+	if (!alloc)
+		return (NULL);
 	i = 0;
-	while (i < size)
+	while (i < (nmemb * size))
 	{
-		alloc[i] = (char)0;
+		alloc[i] = '\0';
 		i++;
 	}
-	return((void *)alloc);
+	return ((void *)alloc);
 }

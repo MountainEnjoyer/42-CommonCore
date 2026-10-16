@@ -76,10 +76,3 @@ fclean:
 
 re: fclean all
 
-test: re
-	$(CC) $(CFLAGS) -g unit_test/test.c libft.h $(NAME) -o test_exec
-	clear
-	./test_exec
-
-ctest: fclean
-	$(RM) test_exec	

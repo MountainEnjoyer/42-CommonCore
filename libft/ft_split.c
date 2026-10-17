@@ -15,6 +15,8 @@
 #include "libft.h"
 #include <stdio.h>
 
+
+
 static int	wcount(char *s, char c)
 {
 	int	i;
@@ -37,23 +39,29 @@ static char	*alouette(char **arr, char *p1, char *p2, int index)
 {
 	int	i;
 
-	i = 0;
+	i = -1;
 	arr[index] = malloc(sizeof(char) * (p1 - p2) + 1);
 	if (!arr[index])
 	{
-		while (arr[i])
-		{
+		while (arr[i++])
 			free(arr[i]);
-			i++;
-		}
 		free(arr);
 		return (NULL);
 	}
-	else
+	else if (*p1 == '\0')
+	{
+		ft_strlcpy(arr[index], (const char *)p2, (p1 - p2) + 1);
+		index ++;
+		arr[index] = NULL;
+		return (arr[index]);
+	}
+	else if (*p1)
 	{
 		ft_strlcpy(arr[index], (const char *)p2, (p1 - p2) + 1);
 		return (arr[index]);
 	}
+	else
+		return (arr[index] = NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -76,11 +84,11 @@ char	**ft_split(char const *s, char c)
 		if (*p1 == c)
 		{
 			new[j] = alouette(new, p1, p2, j);
-			j++;
 			p2 = (p1 + 1);
+			j++;
 		}
 	}
-	new[j] = NULL;
+	new[j] = alouette(new, p1, p2, j);
 	return (new);
 }
 /*

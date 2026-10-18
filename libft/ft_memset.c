@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 17:09:21 by zchauve           #+#    #+#             */
-/*   Updated: 2026/08/10 17:09:42 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/18 15:28:34 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char *add;
-	size_t	i;
+	unsigned char	*add;
+	size_t			i;
 
 	add = (unsigned char *)s;
 	i = 0;

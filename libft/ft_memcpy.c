@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                         :+:    :+:           */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 14:33:10 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/07 16:00:43 by zchauve        ########   odam.nl        */
+/*   Updated: 2026/10/18 15:26:26 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ void	*ft_memcpy(void *dest, void const *src, size_t n)
 {
 	unsigned char	*d;
 	unsigned char	*s;
-	size_t	i;
+	size_t			i;
 
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
 	if (!src || !dest)
 		return (NULL);
 	i = 0;
-	while (i < n) {
+	while (i < n)
+	{
 		d[i] = s[i];
 		i++;
 	}

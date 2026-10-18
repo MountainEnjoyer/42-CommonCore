@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 15:15:39 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/15 15:19:09 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/18 15:27:10 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if(!lst || !del)
-		return;
+	if (!lst || !del)
+		return ;
 	del(lst->content);
 }

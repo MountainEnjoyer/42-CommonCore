@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 13:14:16 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/14 13:15:06 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/18 15:20:01 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *new_list;
+	t_list	*new_list;
 
 	new_list = malloc(sizeof(t_list));
 	if (!new_list)

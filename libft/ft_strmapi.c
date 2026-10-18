@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 23:53:52 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/12 23:58:34 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/18 15:26:08 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*ptr;
 
 	if (!s || !f)
-		return (NULL); 
+		return (NULL);
 	res = malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
 	if (!res)
 		return (NULL);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                         ::::::::           */
-/*   ft_strrchr.c                                        :+:    :+:           */
-/*                                                      +:+                   */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: zchauve <marvin@42.fr>                        +#+                    */
-/*                                                    +#+                     */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 18:56:54 by zchauve        #+#    #+#                */
-/*   Updated: 2026/10/08 19:03:35 by zchauve        ########   odam.nl        */
+/*   Updated: 2026/10/18 15:25:53 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t i;
-	size_t count;
-	char *p;
-	int found;
+	size_t	i;
+	size_t	count;
+	char	*p;
+	int		found;
 
 	i = 0;
 	found = 0;
@@ -34,6 +34,6 @@ char	*ft_strrchr(const char *s, int c)
 		i++;
 	}
 	if (found == 0)
-		return(NULL);
+		return (NULL);
 	return (&p[count]);
 }

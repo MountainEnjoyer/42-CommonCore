@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 15:05:12 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/18 15:27:41 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/18 22:36:22 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,10 @@ char	*ft_strdup(const char *s)
 	int		i;
 	char	*dup;
 
-	if (!s)
-		return (NULL);
 	len = ft_strlen((char *)s);
-	dup = (char *)malloc(len * sizeof(char));
+	dup = (char *)malloc((len + 1) * sizeof(char));
 	if (!dup)
-	{
-		free(dup);
 		return (NULL);
-	}
 	i = 0;
 	while (i < len)
 	{

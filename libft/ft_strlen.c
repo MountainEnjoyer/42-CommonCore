@@ -6,13 +6,13 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 10:53:02 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/18 15:28:21 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/18 16:16:53 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen(const char *s)
 {
 	char	*p;
 	size_t	i;

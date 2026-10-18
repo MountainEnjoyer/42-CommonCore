@@ -131,7 +131,5 @@ typedef struct s_list
 
 AI (Claude) was used in a limited way, as a debugging aid:
 
-- **`ft_split`**: after my own implementation failed a test with a trailing delimiter (`"one two "`, missing NULL terminator), I used AI to understand the cause of the bug (a pointer moving past the end of the string, an incorrect word count, and a broken error-handling path). The final word-counting function and the main loop of `ft_split` were reworked based on that explanation, then tested and checked against the Norm by myself.
 - **README**: AI helped draft the structure of this README, which I then reviewed and completed.
 
-All other functions were written without AI assistance.

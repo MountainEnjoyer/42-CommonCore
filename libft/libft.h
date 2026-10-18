@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 10:49:10 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/18 15:24:11 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/18 16:17:03 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_isalnum(int c);
 int				ft_atoi(const char *s);
-size_t			ft_strlen(char *s);
-int				ft_strncmp(char *s1, char *s2, unsigned int n);
+size_t			ft_strlen(const char *s);
+int				ft_strncmp(const char *s1, const char *s2, unsigned int n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 char			*ft_strdup(const char *s);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 void			*ft_memset(void *s, int c, size_t n);
-void			*ft_memcpy(size_t n, void *dest, void *src);
+void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);

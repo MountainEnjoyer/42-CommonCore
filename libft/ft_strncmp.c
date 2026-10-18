@@ -6,11 +6,11 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 14:56:31 by zchauve           #+#    #+#             */
-/*   Updated: 2026/08/12 14:56:50 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/18 16:22:21 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
 	unsigned int	i;
 	unsigned char	c1;

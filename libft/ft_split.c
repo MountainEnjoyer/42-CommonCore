@@ -15,21 +15,35 @@
 #include "libft.h"
 #include <stdio.h>
 
-
+static char	*char_next(char *s, char c)
+{
+	while (*s && *s == c)
+	{
+		s++;
+	}
+	return (s);
+}
 
 static int	wcount(char *s, char c)
 {
 	int	i;
 	int	count;
+	int	last_char;
 
 	i = 0;
+	last_char = i;
 	count = 0;
 	if (s != NULL)
 		count = 1;
 	while (s[i])
 	{
+		if (s[i] == c && last_char + 1 == i)
+			last_char++;
 		if (s[i] == c && i > 0)
+		{
 			count++;
+			last_char = i;
+		}
 		i++;
 	}
 	return (count);
@@ -37,31 +51,23 @@ static int	wcount(char *s, char c)
 
 static char	*alouette(char **arr, char *p1, char *p2, int index)
 {
-	int	i;
-
-	i = -1;
-	arr[index] = malloc(sizeof(char) * (p1 - p2) + 1);
+	arr[index] = calloc((p1 - p2) + 1, sizeof(char));
 	if (!arr[index])
 	{
-		while (arr[i++])
-			free(arr[i]);
+		while (arr++)
+			free(*arr);
 		free(arr);
 		return (NULL);
 	}
-	else if (*p1 == '\0')
+	if (*p1 == '\0')
 	{
 		ft_strlcpy(arr[index], (const char *)p2, (p1 - p2) + 1);
 		index ++;
 		arr[index] = NULL;
 		return (arr[index]);
 	}
-	else if (*p1)
-	{
-		ft_strlcpy(arr[index], (const char *)p2, (p1 - p2) + 1);
-		return (arr[index]);
-	}
-	else
-		return (arr[index] = NULL);
+	ft_strlcpy(arr[index], (const char *)p2, (p1 - p2) + 1);
+	return (arr[index]);
 }
 
 char	**ft_split(char const *s, char c)
@@ -74,7 +80,7 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	p1 = (char *)s;
 	p2 = (char *)s;
-	new = malloc(sizeof(char *) * wcount((char *)s, c) + 1);
+	new = calloc(wcount((char *)s, c) + 1, sizeof(char *));
 	if (!s || !new)
 		return (NULL);
 	if (*p2 == c)
@@ -84,7 +90,8 @@ char	**ft_split(char const *s, char c)
 		if (*p1 == c)
 		{
 			new[j] = alouette(new, p1, p2, j);
-			p2 = (p1 + 1);
+			p1 = char_next(p1, c);
+			p2 = p1;
 			j++;
 		}
 	}

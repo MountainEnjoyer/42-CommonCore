@@ -6,14 +6,13 @@
 /*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 22:54:11 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/16 14:01:42 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/18 16:05:16 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include "libft.h"
-#include <stdio.h>
 
 static int	ft_isset(char c, const char *set)
 {
@@ -50,10 +49,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res = ft_substr((char const *)p1, 0, (p2 - p1) + 1);
 	return (res);
 }
-/*
-void	main(void)
-{
-	char s1[] = "a";
-	char set[] = "a";
-	ft_strtrim(s1, set);
-}*/

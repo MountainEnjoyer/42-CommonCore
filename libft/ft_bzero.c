@@ -6,12 +6,11 @@
 /*   By: zchauve <marvin@42.fr>                        +#+                    */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 16:38:11 by zchauve        #+#    #+#                */
-/*   Updated: 2026/10/18 15:25:28 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/18 16:05:42 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <strings.h>
-#include <stdio.h>
 
 void	ft_bzero(void *s, size_t n)
 {

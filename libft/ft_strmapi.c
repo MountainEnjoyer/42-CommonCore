@@ -6,13 +6,12 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 23:53:52 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/18 15:26:08 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/18 16:04:53 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

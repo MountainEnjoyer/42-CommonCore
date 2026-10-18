@@ -6,12 +6,11 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 17:09:21 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/18 15:28:34 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/18 16:04:40 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 void	*ft_memset(void *s, int c, size_t n)

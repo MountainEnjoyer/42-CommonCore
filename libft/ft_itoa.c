@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 22:33:53 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/18 17:08:53 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/18 22:17:58 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_itoa(int n)
 	if (n == 0)
 		return (ft_strdup("0"));
 	count = count_digit(nb);
-	result = ft_calloc(count + 1, sizeof(char *));
+	result = ft_calloc(count + 1, sizeof(char));
 	if (!result)
 		return (NULL);
 	i = count - 1 ;

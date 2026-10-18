@@ -6,41 +6,46 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 22:33:53 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/12 22:34:00 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/18 14:36:27 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "libft.h"
 
 int	count_digit(long n)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (n < 0)
 	{
-		count++;
 		n *= -1;
+		count++;
 	}
-	if (n > 9)
+	while (n > 0)
 	{
+		count ++;
 		n = n / 10;
-		count += count_digit(n);
 	}
-	return (count + 1);
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	char *result;
-	long nb;
-	int count;
-	int i;
+	char	*result;
+	long	nb;
+	int		count;
+	int		i;
 
 	nb = n;
+	if (n == 0)
+		return (ft_strdup("0"));
 	count = count_digit(nb);
-	result = malloc(sizeof(char) * count + 1);
+	result = ft_calloc(count + 1, sizeof(char *));
+	if (!result)
+		return (NULL);
 	i = count - 1 ;
 	if (nb < 0)
 		nb *= -1;
@@ -48,13 +53,10 @@ char	*ft_itoa(int n)
 	{
 		result[i] = (nb % 10) + 48;
 		if (nb > 9)
-		{
 			nb = nb / 10;
-		}
 		i--;
 	}
 	if (n < 0)
 		result[0] = '-';
-	result[count] = '\0';
 	return (result);
 }

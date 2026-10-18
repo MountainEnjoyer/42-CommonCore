@@ -6,14 +6,14 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 22:33:53 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/18 16:04:20 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/18 17:08:53 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	count_digit(long n)
+static int	count_digit(long n)
 {
 	int	count;
 

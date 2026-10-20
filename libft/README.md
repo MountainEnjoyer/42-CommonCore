@@ -129,7 +129,7 @@ typedef struct s_list
 
 ### Use of AI
 
-AI (Claude) was used in a limited way, as a debugging aid:
+AI (Claude) was used in a limited way :
 
 - **README**: AI helped draft the structure of this README, which I then reviewed and completed.
 

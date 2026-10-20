@@ -6,11 +6,11 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 19:13:20 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/18 19:13:28 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/20 11:27:54 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_printf(const char *, ...)
+int	ft_printf(const char*, ...)
 {
-
+	return (0);
 }

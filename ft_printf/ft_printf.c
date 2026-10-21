@@ -12,16 +12,37 @@
 
 #include <stdarg.h>
 #include "ft_printf.h"
+#include <unistd.h>
+
+static char	*parssing(char *s, ...)
+{
+	s = s + 2;
+	return (s);
+}
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	argptr;
-	va_start(argptr, *);
+	va_start(argptr, format);
 
 	
-	while (*)
+	while (*format)
 	{
-		*++;
+		if (*format == '%')
+		{
+			*format = parssing((char *)format, va_arg(argptr, void *));
+		}
+		else
+			write(1, &format, 1);
+		format++;
 	}
 	return (0);
 }
+
+int	main(int ac, char **av)
+{
+	if (ac == 2)
+		ft_printf(av[0], av[1]);
+	return (0);
+}
+

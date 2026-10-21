@@ -31,12 +31,12 @@ static int	count_digit(long n)
 	return (count);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long n)
 {
-	char	*result;
-	long	nb;
-	int		count;
-	int		i;
+	char		*result;
+	long long	nb;
+	int			count;
+	int			i;
 
 	nb = n;
 	if (n == 0)

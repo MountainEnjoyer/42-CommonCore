@@ -10,6 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
+LIBDIR = libft/
+LIB = $(LIBDIR)libft.a $(LIBDIR)libft.h
+
 NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -21,12 +24,19 @@ OBJ = $(SRC:.c=.o)
 all = $(NAME)
 
 $(NAME) : $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	$(MAKE) -C $(LIBDIR)
+	ar rc $(NAME) $(OBJ) $(LIB)
 
 clean :
+	$(MAKE) -C $(LIBDIR) clean
 	$(RM) $(OBJ)
 
-fclean : clean
+fclean :
+	$(MAKE) -C $(LIBDIR) fclean
+	clean
 	$(RM) $(NAME)
 
-re : fclean all
+re :
+	$(MAKE) -C $(LIBDIR) re
+	fclean
+	all

@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-LIBDIR = libft/
-LIB = $(LIBDIR)libft.a $(LIBDIR)libft.h
+LIBDIR = libft
+LIB = $(LIBDIR)/libft.a 
 
 NAME = libftprintf.a
 CC = cc
@@ -21,22 +21,23 @@ SRC = ft_printf.c
 
 OBJ = $(SRC:.c=.o)
 
-all = $(NAME)
+all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(LIB):
 	$(MAKE) -C $(LIBDIR)
-	ar rc $(NAME) $(OBJ) $(LIB)
 
-clean :
+$(NAME): $(LIB) $(OBJ)
+	cp $(LIB) $(NAME)
+	ar rcs $(NAME) $(OBJ)
+
+clean:
 	$(MAKE) -C $(LIBDIR) clean
-	$(RM) $(OBJ)
+	$(RM) -f $(OBJ)
 
-fclean :
+fclean: clean
 	$(MAKE) -C $(LIBDIR) fclean
-	clean
-	$(RM) $(NAME)
+	$(RM) -f $(NAME)
 
-re :
-	$(MAKE) -C $(LIBDIR) re
-	fclean
-	all
+re: fclean all
+
+.PHONY: all clean fclean re

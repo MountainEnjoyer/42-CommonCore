@@ -18,12 +18,16 @@
 static void	ft_putadr(void *s)
 {
 	char *adr;
+	unsigned char c;
+	char *const hex = "0132456789ABCDEF";
 
-	adr = (char *)s + ft_strlen((char *)s);
-	while (adr != (char *)s[0])
+	adr = (char *)s;
+	while (*adr)
 	{
-		ft_puthexa(*adr);
-		adr--;
+		c = *adr;
+		ft_putchar_fd(hex[c / 16], 1);
+		ft_putchar_fd(hex[c % 16], 1);
+		adr++;
 	}
 }
 
@@ -36,15 +40,15 @@ static void	parssing(char c, void *data)
 	else if (c == 'p')
 		ft_putadr(&data);
 	else if (c == 'd')
-		ft_putnbr_fd((int)data, 1);
+		ft_putnbr_fd(*(long *)data, 1);
 	else if (c == 'i')
-		ft_putnbr_fd((int)data, 1);
+		ft_putnbr_fd(*(long *)data, 1);
 	else if (c == 'u')
-		ft_putnbr_fd((int)data, 1);
+		ft_putnbr_fd(*(long *)data, 1);
 	else if (c == 'x')
-		ft_puthexa((char *)data);
+		ft_puthexas((char *)data, 0);
 	else if (c == 'X')
-		ft_putuphexa((char *)data);
+		ft_puthexas((char *)data, 1);
 	else if (c == '%')
 		write(1, "%", 1);
 }
@@ -67,11 +71,3 @@ int	ft_printf(const char *format, ...)
 	}
 	return (0);
 }
-
-int	main(int ac, char **av)
-{
-	if (ac == 2)
-		ft_printf(av[0], av[1]);
-	return (0);
-}
-

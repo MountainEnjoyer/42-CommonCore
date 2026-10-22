@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 20:16:29 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/21 20:18:44 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/23 01:39:20 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_puthexas(void *data, int up)
 {
-	char *s;
-	unsigned char c;
-	char *hex;
+	char			*s;
+	unsigned char	c;
+	char			*hex;
 
 	hex = "0132456789abcdef";
 	if (up)

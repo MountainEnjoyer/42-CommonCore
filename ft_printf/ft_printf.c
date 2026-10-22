@@ -6,10 +6,11 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 19:13:20 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/23 00:07:45 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/23 01:21:15 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdarg.h>
 #include "ft_printf.h"
 #include "libft/libft.h"
@@ -22,14 +23,14 @@ static int	ft_putadr(void *s, int ye, uintptr_t rec, int count)
 
 	hex = "0132456789abcdef";
 	adr = rec;
+	if (!s)
+		return (ft_putstr_fd("(nil)", 1) - 3);
 	if (rec <= 0)
 		adr = (uintptr_t)s;
 	if (!ye)
-		ft_putstr_fd("0x\0", 1);
+		ft_putstr_fd("0x", 1);
 	if (adr >= 16)
-	{
-		ft_putadr(s, 1, (adr / 16), count);
-	}
+		count += ft_putadr(s, 1, (adr / 16), count);
 	ft_putchar_fd(hex[adr % 16], 1);
 	return (count + 1);
 }
@@ -44,7 +45,7 @@ static int	parssing(char c, va_list arg)
 	else if (c == 's')
 		res = ft_putstr_fd(va_arg(arg, char *), 1);
 	else if (c == 'p')
-		res = ft_putadr(va_arg(arg, void *), 0, 0, 0);
+		res = ft_putadr(va_arg(arg, void *), 0, 0, 0) + 2;
 	else if (c == 'd')
 		res = ft_putnbr_fd(va_arg(arg, unsigned int), 1);
 	else if (c == 'i')
@@ -74,7 +75,7 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			count += parssing(*format, argptr) + 1;
+			count += parssing(*format, argptr);
 		}
 		else
 		{

@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 19:47:40 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/22 19:48:00 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/10/23 01:18:07 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_base(char *base)
 	return (0);
 }
 
-int	print_nbr(long nbr, char *base, int bas, int count)
+int	print_nbr(unsigned long nbr, char *base, int bas, int count)
 {
 	int	temp1;
 	int	temp2;
@@ -58,26 +58,17 @@ int	print_nbr(long nbr, char *base, int bas, int count)
 	return (count);
 }
 
-int	ft_putnbr_base(int nbr, char *base)
+int	ft_putnbr_base(unsigned int nbr, char *base)
 {
-	char	sign;
-	int		bas;
-	long	nb;
-	int count;
+	int				bas;
+	unsigned long	nb;
+	int				count;
 
-	count = 1;
+	count = 0;
 	nb = nbr;
-	sign = '-';
 	if (check_base(base) == 1)
 		return (0);
 	bas = (int)ft_strlen((const char *)base);
-	if (nb >= 0)
-		count += print_nbr(nb, base, bas, count);
-	else
-	{
-		nb = nb * -1;
-		write(1, &sign, 1);
-		count += print_nbr(nb, base, bas, count);
-	}
-	return (count);
+	count += print_nbr(nb, base, bas, count);
+	return (count + 1);
 }

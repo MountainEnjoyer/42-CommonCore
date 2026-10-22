@@ -10,12 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_PRINTF_H
+#define FT_PRINTF_H
 
+# include "libft/libft.h"
 # include <stddef.h>
 # include <string.h>
 # include <stdarg.h>
+# include <stdint.h>
 
 int	ft_printf(const char *format, ...);
 

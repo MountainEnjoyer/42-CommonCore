@@ -16,7 +16,7 @@ void	ft_puthexas(void *data, int up)
 {
 	char *s;
 	unsigned char c;
-	char *const hex;
+	char *hex;
 
 	hex = "0132456789abcdef";
 	if (up)

@@ -17,11 +17,11 @@
 
 static void	ft_putadr(void *s)
 {
-	char *adr;
+	uintptr_t *adr;
 	unsigned char c;
-	char *const hex = "0132456789ABCDEF";
+	char *hex = "0132456789ABCDEF";
 
-	adr = (char *)s;
+	adr = (uintptr_t *)s;
 	while (*adr)
 	{
 		c = *adr;
@@ -62,8 +62,8 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			parssing(*format, va_arg(argptr, void *));
 			format++;
+			parssing(*format, va_arg(argptr, void *));
 		}
 		else
 			write(1, &format, 1);

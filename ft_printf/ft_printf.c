@@ -6,11 +6,10 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 19:13:20 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/23 01:21:15 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/23 01:29:38 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdarg.h>
 #include "ft_printf.h"
 #include "libft/libft.h"
@@ -24,7 +23,7 @@ static int	ft_putadr(void *s, int ye, uintptr_t rec, int count)
 	hex = "0132456789abcdef";
 	adr = rec;
 	if (!s)
-		return (ft_putstr_fd("(nil)", 1) - 3);
+		return (ft_putstr_fd("(nil)", 1) - 2);
 	if (rec <= 0)
 		adr = (uintptr_t)s;
 	if (!ye)

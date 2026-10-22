@@ -66,7 +66,7 @@ int	ft_printf(const char *format, ...)
 			parssing(*format, va_arg(argptr, void *));
 		}
 		else
-			write(1, &format, 1);
+			write(1, &*format, 1);
 		format++;
 	}
 	return (0);

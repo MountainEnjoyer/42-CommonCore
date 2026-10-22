@@ -1,8 +1,10 @@
 #include "ft_printf.h"
 
-int	main(int ac, char **av)
+int	main(void)
 {
-	if (ac == 2)
-		ft_printf(av[0], av[1]);
+	char	*format = "la variable vaut : %s";
+	char	*argument = "une string";
+
+	ft_printf(format, argument);
 	return (0);
 }

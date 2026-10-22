@@ -59,7 +59,8 @@ SRC = ft_isascii.c \
 	  ft_lstclear.c \
 	  ft_lstiter.c \
 	  ft_lstmap.c \
-	  ft_puthexas.c
+	  ft_puthexas.c \
+	  ft_ultoa.c
 
 OBJ = $(SRC:.c=.o)
 

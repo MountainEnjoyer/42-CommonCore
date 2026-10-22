@@ -60,7 +60,8 @@ SRC = ft_isascii.c \
 	  ft_lstiter.c \
 	  ft_lstmap.c \
 	  ft_puthexas.c \
-	  ft_ultoa.c
+	  ft_ultoa.c \
+	  ft_putnbr_base.c
 
 OBJ = $(SRC:.c=.o)
 

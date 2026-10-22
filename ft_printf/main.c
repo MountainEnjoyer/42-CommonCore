@@ -7,10 +7,10 @@ int	main(void)
 	unsigned int d = 65325;
 	char c = 'c';
 	char *adr = "lawda";
-	char	*format = "la variable vaut : %s, %c, %i, %p, %x, %X, %%, %d, \n";
+	char	*format = "la variable vaut : %s, %c, %i, %p, %x, %X, %%, %d,\n";
 	char	*argument = "une string";
 	int res;
-	int tin = 6546;
+	unsigned int tin = 6546;
 
 	res = ft_printf(format, argument, c, i, &adr, d, d, tin);
 	printf("%d\n", res);

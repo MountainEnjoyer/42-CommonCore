@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 19:13:20 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/20 11:50:42 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/22 23:47:58 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,21 @@ static int	ft_putadr(void *s, int ye, uintptr_t rec, int count)
 
 static int	parssing(char c, va_list arg)
 {
-	int res;
+	int	res;
 
 	res = 1;
 	if (c == 'c')
 		ft_putchar_fd((char)va_arg(arg, int), 1);
 	else if (c == 's')
-		res = ft_putstr_fd(va_arg(arg, char*), 1);
+		res = ft_putstr_fd(va_arg(arg, char *), 1);
 	else if (c == 'p')
 		res = ft_putadr(va_arg(arg, void *), 0, 0, 0);
 	else if (c == 'd')
-		res = ft_putnbr_fd(va_arg(arg, int), 1);
+		res = ft_putnbr_fd(va_arg(arg, unsigned int), 1);
 	else if (c == 'i')
 		res = ft_putnbr_fd(va_arg(arg, int), 1);
 	else if (c == 'u')
-		res = ft_putnbr_fd(va_arg(arg, long), 1);
+		res = ft_putstr_fd(ft_ultoa(va_arg(arg, unsigned long)), 1);
 	else if (c == 'x')
 		res = ft_putnbr_base(va_arg(arg, unsigned int), "0123456789acbdef");
 	else if (c == 'X')

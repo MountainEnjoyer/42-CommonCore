@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_ultoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 22:33:53 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/18 22:17:58 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/22 23:44:05 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@ static int	count_digit(unsigned long long n)
 	int	count;
 
 	count = 0;
-	if (n < 0)
-	{
-		n *= -1;
-		count++;
-	}
 	while (n > 0)
 	{
 		count ++;
@@ -35,7 +30,7 @@ char	*ft_ultoa(unsigned long n)
 {
 	char				*result;
 	unsigned long long	nb;
-	int				count;
+	int					count;
 	int					i;
 
 	nb = n;
@@ -46,8 +41,6 @@ char	*ft_ultoa(unsigned long n)
 	if (!result)
 		return (NULL);
 	i = count - 1 ;
-	if (nb < 0)
-		nb *= -1;
 	while (i >= 0)
 	{
 		result[i] = (nb % 10) + 48;
@@ -55,7 +48,5 @@ char	*ft_ultoa(unsigned long n)
 			nb = nb / 10;
 		i--;
 	}
-	if (n < 0)
-		result[0] = '-';
 	return (result);
 }

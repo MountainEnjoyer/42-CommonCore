@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 19:47:40 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/23 01:18:07 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/23 09:43:10 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	print_nbr(unsigned long nbr, char *base, int bas, int count)
 	else if (temp1 > 0)
 	{
 		write(1, &base[temp1], 1);
+		count ++;
 	}
 	write(1, &base[temp2], 1);
 	return (count);

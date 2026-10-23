@@ -1,5 +1,4 @@
-/*
-#include "ft_printf.h"
+/*#include "ft_printf.h"
 #include <stdio.h>
 
 int	main(void)
@@ -19,5 +18,5 @@ int	main(void)
 	res = printf(format, argument, c, i, &adr, d, d, tin);
 	printf("%d\n", res);
 	return (0);
-}*/
+}
 /* make re && cc main.c libftprintf.a ft_printf.h && clear && ./a.out */

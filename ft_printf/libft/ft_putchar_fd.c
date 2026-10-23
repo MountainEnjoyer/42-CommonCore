@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 23:17:42 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/23 00:36:00 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/23 09:48:32 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	if (!write(fd, &c, 1))
+		return (-1);
 	return (1);
 }

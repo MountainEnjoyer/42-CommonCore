@@ -67,7 +67,7 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 char			*ft_ultoa(unsigned long n);
-int				ft_putnbr_base(unsigned int nbr, char *base);
+int				ft_putnbr_base(long long nbr, char *base);
 int				ft_putunbr_fd(unsigned int n, int fd);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));

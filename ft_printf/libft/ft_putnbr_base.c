@@ -12,6 +12,7 @@
 
 #include <unistd.h>
 #include "libft.h"
+#include <stdio.h>
 
 int	check_base(char *base)
 {
@@ -39,7 +40,7 @@ int	check_base(char *base)
 	return (0);
 }
 
-int	print_nbr(unsigned long nbr, char *base, int bas, int count)
+int	print_nbr(long long nbr, char *base, int bas, int count)
 {
 	int	temp1;
 	int	temp2;
@@ -48,28 +49,33 @@ int	print_nbr(unsigned long nbr, char *base, int bas, int count)
 	temp2 = nbr % bas;
 	if (temp1 > bas - 1)
 	{
-		count += print_nbr(temp1, base, bas, count + 1);
+		count += print_nbr(temp1, base, bas, count);
 	}
 	else if (temp1 > 0)
 	{
-		write(1, &base[temp1], 1);
-		count ++;
+		count += write(1, &base[temp1], 1);
 	}
-	write(1, &base[temp2], 1);
+	count += write(1, &base[temp2], 1);
 	return (count);
 }
 
-int	ft_putnbr_base(unsigned int nbr, char *base)
+int	ft_putnbr_base(long long nbr, char *base)
 {
-	int				bas;
-	unsigned long	nb;
-	int				count;
+	int						bas;
+	long long				nb;
+	int						count;
 
 	count = 0;
 	nb = nbr;
 	if (check_base(base) == 1)
 		return (0);
 	bas = (int)ft_strlen((const char *)base);
-	count += print_nbr(nb, base, bas, count);
-	return (count + 1);
+	if (nb >= 0)
+		count += print_nbr(nb, base, bas, count);
+	else
+	{
+		nb = nb * -1;
+		count += print_nbr(nb, base, bas, count);
+	}
+	return (count);
 }

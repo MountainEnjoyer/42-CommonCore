@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 23:25:40 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/23 01:20:58 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/23 19:29:30 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	ft_putstr_fd(char *s, int fd)
 		write (1, "(null)", 6);
 		return (6);
 	}
-	write(fd, s, ft_strlen(s));
+	if (write(fd, s, ft_strlen(s)) == -1)
+		return (-1);
 	return (ft_strlen((const char *)s));
 }

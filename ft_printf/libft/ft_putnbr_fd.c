@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 23:32:32 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/23 10:00:41 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/23 19:49:40 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@ int	ft_putnbr_fd(int n, int fd)
 
 	s = ft_itoa(n);
 	if (!s)
+	{
+		free(s);
 		return (0);
+	}
 	len = (int)ft_strlen((const char *)s);
-	ft_putstr_fd(s, fd);
+	if (ft_putstr_fd(s, fd) == -1)
+		return (-1);
 	free(s);
 	return (len);
 }

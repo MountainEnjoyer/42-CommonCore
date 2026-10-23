@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 19:13:20 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/23 12:27:40 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/23 19:45:55 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,28 @@ static int	ft_putadr(void *s, int ye, uintptr_t rec, int count)
 {
 	uintptr_t		adr;
 	char			*hex;
+	int				test_write;
 
 	hex = "0123456789abcdef";
 	adr = rec;
+	test_write = 0;
 	if (!s)
-		return (ft_putstr_fd("(nil)", 1) - 2);
+	{
+		test_write = ft_putstr_fd("(nil)", 1);
+		return (test_write);
+	}
 	if (rec <= 0)
 		adr = (uintptr_t)s;
 	if (!ye)
-		ft_putstr_fd("0x", 1);
+		if (ft_putstr_fd("0x", 1) == -1)
+			return (-1);
 	if (adr >= 16)
-		count += ft_putadr(s, 1, (adr / 16), count);
-	ft_putchar_fd(hex[adr % 16], 1);
-	return (count + 1);
+		count += ft_putadr(s, 1, (adr / 16), count) + 1;
+	if (ft_putchar_fd(hex[adr % 16], 1) == -1)
+		return (-1);
+	if (!ye)
+		return (count + 3);
+	return (count);
 }
 
 static int	parssing(char c, va_list arg)
@@ -44,7 +53,7 @@ static int	parssing(char c, va_list arg)
 	else if (c == 's')
 		res = ft_putstr_fd(va_arg(arg, char *), 1);
 	else if (c == 'p')
-		res = ft_putadr(va_arg(arg, void *), 0, 0, 0) + 2;
+		res = ft_putadr(va_arg(arg, void *), 0, 0, 0);
 	else if (c == 'd')
 		res = ft_putnbr_fd(va_arg(arg, int), 1);
 	else if (c == 'i')
@@ -78,14 +87,13 @@ int	ft_printf(const char *format, ...)
 		{
 			format++;
 			temp = parssing(*format, argptr);
-			if (temp == -1)
-				return (-1);
-			count += temp;
 		}
 		else
-			count += write(1, format, 1);
+			temp = write(1, format, 1);
+		if (temp == -1)
+			return (-1);
+		count += temp;
 		format++;
 	}
-	va_end(argptr);
 	return (count);
 }

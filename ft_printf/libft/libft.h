@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 10:49:10 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/23 01:17:11 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/23 09:38:51 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 char			*ft_ultoa(unsigned long n);
 int				ft_putnbr_base(unsigned int nbr, char *base);
+int				ft_putunbr_fd(unsigned int n, int fd);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 

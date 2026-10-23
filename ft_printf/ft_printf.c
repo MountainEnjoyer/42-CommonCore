@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 19:13:20 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/23 01:29:38 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/23 09:39:31 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_putadr(void *s, int ye, uintptr_t rec, int count)
 	uintptr_t		adr;
 	char			*hex;
 
-	hex = "0132456789abcdef";
+	hex = "0123456789abcdef";
 	adr = rec;
 	if (!s)
 		return (ft_putstr_fd("(nil)", 1) - 2);
@@ -50,7 +50,7 @@ static int	parssing(char c, va_list arg)
 	else if (c == 'i')
 		res = ft_putnbr_fd(va_arg(arg, int), 1);
 	else if (c == 'u')
-		res = ft_putstr_fd(ft_ultoa(va_arg(arg, unsigned long)), 1);
+		res = ft_putunbr_fd(va_arg(arg, unsigned long), 1);
 	else if (c == 'x')
 		res = ft_putnbr_base(va_arg(arg, unsigned int), "0123456789acbdef");
 	else if (c == 'X')

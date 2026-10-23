@@ -6,7 +6,7 @@
 #    By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/10 17:31:51 by zchauve           #+#    #+#              #
-#    Updated: 2026/10/18 22:51:56 by zchauve          ###   ########.ch        #
+#    Updated: 2026/10/23 09:37:56 by zchauve          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,8 @@ SRC = ft_isascii.c \
 	  ft_lstmap.c \
 	  ft_puthexas.c \
 	  ft_ultoa.c \
-	  ft_putnbr_base.c
+	  ft_putnbr_base.c \
+	  ft_putunbr_fd.c 
 
 OBJ = $(SRC:.c=.o)
 

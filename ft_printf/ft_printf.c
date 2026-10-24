@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 19:13:20 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/23 19:45:55 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/24 19:35:28 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ static int	parssing(char c, va_list arg)
 	else if (c == 'p')
 		res = ft_putadr(va_arg(arg, void *), 0, 0, 0);
 	else if (c == 'd')
-		res = ft_putnbr_fd(va_arg(arg, int), 1);
+		res = ft_putnbr(va_arg(arg, int));
 	else if (c == 'i')
-		res = ft_putnbr_fd(va_arg(arg, int), 1);
+		res = ft_putnbr(va_arg(arg, int));
 	else if (c == 'u')
 		res = ft_putunbr_fd(va_arg(arg, unsigned int), 1);
 	else if (c == 'x')

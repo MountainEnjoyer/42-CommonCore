@@ -31,8 +31,6 @@ Like the original, `ft_printf` writes the formatted output to the standard outpu
 | `%X` | Prints a number in uppercase hexadecimal (base 16) |
 | `%%` | Prints a percent sign |
 
-<!-- If you did the bonus, add a section here listing the flags you handle:
-     '-', '0', '.', minimum field width, '#', ' ' and '+'. -->
 
 As required by the subject, the buffer management of the original `printf()` is **not** implemented: output is written directly with `write()`.
 
@@ -81,9 +79,6 @@ cc -Wall -Wextra -Werror main.c -L. -lftprintf -o test
 
 ## Algorithm and data structure
 
-<!-- Adjust this section so it matches YOUR actual implementation —
-     evaluators will ask you to explain it. -->
-
 ### Algorithm
 
 `ft_printf` makes a single left-to-right pass over the format string:
@@ -108,25 +103,14 @@ Number conversions (`%d`, `%i`, `%u`, `%x`, `%X`, `%p`) share one generic routin
 
 The mandatory part does not need a complex data structure: the only state carried through the program is the `va_list` and an `int` counter of printed characters. Keeping the state this small makes the code simple to read and to debug.
 
-<!-- If you did the bonus, describe your flags structure here, e.g. a
-     `t_format` struct holding minus, zero, precision, width, hash, space and
-     plus — parsed once per conversion and passed to the handlers — and
-     explain why grouping them in a struct beats passing many parameters. -->
-
 ## Resources
 
 ### Documentation and references
 
 - [`man 3 printf`](https://man7.org/linux/man-pages/man3/printf.3.html) — the reference behaviour `ft_printf` is compared against
 - [`man 3 stdarg`](https://man7.org/linux/man-pages/man3/stdarg.3.html) — `va_start`, `va_arg`, `va_copy`, `va_end`
-- [cppreference — `printf`](https://en.cppreference.com/w/c/io/fprintf) — conversion specifiers, flags and edge cases
-- [cppreference — Variadic functions](https://en.cppreference.com/w/c/variadic)
 - The 42 Norm (available on the intranet)
 
 ### Use of AI
 
-<!-- Be honest and specific here — the subject requires it. Example: -->
-
 - AI was used to help draft and structure this `README.md` file.
-- <!-- List any other use, e.g. "to explain how va_arg handles type promotion",
-       or "No AI was used to write the source code." -->

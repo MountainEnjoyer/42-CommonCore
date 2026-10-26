@@ -12,13 +12,13 @@
 
 #include "get_next_line.h"
 
-static char	*g_buffer;
-
 static int	ft_strlen(char *s)
 {
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i])
 		i++;
 	return (i);
@@ -42,48 +42,43 @@ static int	check(char *s)
 	return (s - p);
 }
 
-static int	alloc_dup(char *s)
+static char	*alloc_dup(char *s, char *buffer)
 {
 	int	i;
 
 	i = 0;
-	g_buffer = malloc(sizeof(char) * (ft_strlen(g_buffer) + check(s)));
-	if (!g_buffer)
-	{
-		freeing(g_buffer);
-		return (0);
-	}
+	buffer = malloc(sizeof(char) * (ft_strlen(buffer) + check(s)));
+	if (!buffer)
+		return(freeing(buffer));
 	while (s[i] != '\n')
 	{
 		if (!s[i])
-		{
-			freeing(g_buffer);
-			return (0);
-		}
-		g_buffer[ft_strlen(g_buffer) + i] = s[i];
+			return(freeing(buffer));
+		buffer[ft_strlen(buffer) + i - 1] = s[i];
 		i++;
 	}
-	return (1);
+	return (buffer);
 }
 
 char	*get_next_line(int fd)
 {
 	char		buff[BUFFER_SIZE];
-	int			i;
+	static char	*buffer;
 
-	i = 0;
-	buff[0] = 0;
-	while ((check(buff) == BUFFER_SIZE && check(buff)) || i == 0)
+	if (!read(fd, buff, BUFFER_SIZE))
+		return (NULL);
+	while ((check(buff) == BUFFER_SIZE && check(buff)))
 	{
 		if (!read(fd, buff, BUFFER_SIZE))
 			return (NULL);
 		if (check(buff))
-			if (!alloc_dup(buff))
-				return (NULL);
-		printf("%s\n", buff);
-		i = 1;
+		{
+			buffer = alloc_dup(buff, buffer);
+			if (!buffer)
+				return (freeing(buffer));
+		}
 	}
-	if (g_buffer[ft_strlen(g_buffer) - 1] != '\n')
-		return (freeing(g_buffer));
-	return (g_buffer);
+	if (buffer[ft_strlen(buffer) - 1] != '\n')
+		return (freeing(buffer));
+	return (buffer);
 }

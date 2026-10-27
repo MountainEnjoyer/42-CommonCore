@@ -30,34 +30,39 @@ static char	*freeing(char *buff)
 	return (NULL);
 }
 
-static int	check(char *s)
+static char	*alloc_dup(char buff[BUFFER_SIZE], char *buffer)
 {
-	char	*p;
+	int	i;
+	int	len;
+	int	blen;
 
-	p = s;
-	if (!s[0] || !s)
-		return (0);
-	while (*s && *s != '\n')
-		s++;
-	return (s - p);
+	i = 0;
+	blen = ft_strlen(buffer);
+	len = ft_strrchr(buff, '\n');
+	if (ft_strrchr(buff, '\n') == 0)
+		len = ft_strlen(buff);
+	buffer = malloc(sizeof(char) * (ft_strlen(buffer) + len));
+	if (!buffer)
+		return(freeing(buffer));
+	while (i <= len)
+	{
+		buffer[blen + i] = buff[i];
+		i++;
+	}
+	return (buffer);
 }
 
-static char	*alloc_dup(char *s, char *buffer)
+static char	*init_buff(char buff[BUFFER_SIZE])
 {
 	int	i;
 
 	i = 0;
-	buffer = malloc(sizeof(char) * (ft_strlen(buffer) + check(s)));
-	if (!buffer)
-		return(freeing(buffer));
-	while (s[i] != '\n')
+	while (i < BUFFER_SIZE)
 	{
-		if (!s[i])
-			return(freeing(buffer));
-		buffer[ft_strlen(buffer) + i - 1] = s[i];
+		buff[i] = 0;
 		i++;
 	}
-	return (buffer);
+	return (buff);
 }
 
 char	*get_next_line(int fd)
@@ -65,20 +70,17 @@ char	*get_next_line(int fd)
 	char		buff[BUFFER_SIZE];
 	static char	*buffer;
 
-	if (!read(fd, buff, BUFFER_SIZE))
-		return (NULL);
-	while ((check(buff) == BUFFER_SIZE && check(buff)))
+	init_buff(buff);
+	if (BUFFER_SIZE > 0)
 	{
-		if (!read(fd, buff, BUFFER_SIZE))
-			return (NULL);
-		if (check(buff))
+		while (!ft_strrchr(buff, '\n'))
 		{
+			if (!read(fd, buff, BUFFER_SIZE))
+				return (NULL);
+			if ((ft_strrchr(buff, '\0') < ft_strrchr(buff, '\n')) || (ft_strrchr(buff, '\0') && !ft_strrchr(buff, '\n')))
+				return (NULL);
 			buffer = alloc_dup(buff, buffer);
-			if (!buffer)
-				return (freeing(buffer));
 		}
 	}
-	if (buffer[ft_strlen(buffer) - 1] != '\n')
-		return (freeing(buffer));
 	return (buffer);
 }

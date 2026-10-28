@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 20:10:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/26 00:30:06 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/28 11:37:57 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	*alloc_dup(char buff[BUFFER_SIZE], char *buffer)
 		len = ft_strlen(buff);
 	buffer = malloc(sizeof(char) * (ft_strlen(buffer) + len));
 	if (!buffer)
-		return(freeing(buffer));
+		return (freeing(buffer));
 	while (i <= len)
 	{
 		buffer[blen + i] = buff[i];
@@ -51,7 +51,7 @@ static char	*alloc_dup(char buff[BUFFER_SIZE], char *buffer)
 	}
 	return (buffer);
 }
-
+/*
 static char	*init_buff(char buff[BUFFER_SIZE])
 {
 	int	i;
@@ -63,23 +63,28 @@ static char	*init_buff(char buff[BUFFER_SIZE])
 		i++;
 	}
 	return (buff);
-}
+}*/
 
 char	*get_next_line(int fd)
 {
 	char		buff[BUFFER_SIZE];
 	static char	*buffer;
+	int			i;
 
-	init_buff(buff);
-	if (BUFFER_SIZE > 0)
+	i = 0;
+	if (BUFFER_SIZE > 0 && fd > 0)
 	{
-		while (!ft_strrchr(buff, '\n'))
+		while (!ft_strrchr(buff, '\0')
+			|| ft_strrchr(buff, '\n') < ft_strrchr(buff, '\0') || i == 0)
 		{
 			if (!read(fd, buff, BUFFER_SIZE))
 				return (NULL);
-			if ((ft_strrchr(buff, '\0') < ft_strrchr(buff, '\n')) || (ft_strrchr(buff, '\0') && !ft_strrchr(buff, '\n')))
+			if (ft_strrchr(buff, '\0') < ft_strrchr(buff, '\n'))
 				return (NULL);
+			if (ft_strrchr(buff, '\n'))
+				return (alloc_dup(buff, buffer));
 			buffer = alloc_dup(buff, buffer);
+			i = 1;
 		}
 	}
 	return (buffer);

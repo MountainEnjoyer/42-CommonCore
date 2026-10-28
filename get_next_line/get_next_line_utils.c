@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 19:38:35 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/25 19:38:39 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/28 11:33:19 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,15 @@ static int	ft_strlen(char *s)
 int	ft_strrchr(const char *s, int c)
 {
 	size_t	i;
-	size_t	count;
 	char	*p;
-	int		found;
 
 	i = 0;
-	found = 0;
-	count = 0;
 	p = (char *)s;
 	while (i <= (size_t)ft_strlen(p))
 	{
 		if ((unsigned char)p[i] == (unsigned char)c)
 		{
-			return (i);
+			return ((int)i);
 		}
 		i++;
 	}

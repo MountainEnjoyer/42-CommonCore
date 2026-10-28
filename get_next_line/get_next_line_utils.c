@@ -31,7 +31,7 @@ int	ft_strrchr(const char *s, int c)
 
 	i = 0;
 	p = (char *)s;
-	while (i <= (size_t)ft_strlen(p))
+	while (i <= (size_t)ft_strlen(p) - 1)
 	{
 		if ((unsigned char)p[i] == (unsigned char)c)
 		{
@@ -39,5 +39,5 @@ int	ft_strrchr(const char *s, int c)
 		}
 		i++;
 	}
-	return (0);
+	return (-1);
 }

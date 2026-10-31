@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 20:11:09 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/31 20:49:01 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/31 21:45:18 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@
 
 char		*get_next_line(int fd);
 ssize_t		check_read(int fd, char *stash);
-void		rearrange(char *stash);
+void		rearrange(char *stash, int fact);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 21:44:50 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/28 11:18:55 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/31 22:00:29 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 	int	fd;
 
 	fd = open("./file.txt", O_RDONLY, 1);
-	printf("%s", get_next_line(fd));
+	printf("%s\n#########\n", get_next_line(fd));
 	printf("%s", get_next_line(fd));
 	return (0);
 }

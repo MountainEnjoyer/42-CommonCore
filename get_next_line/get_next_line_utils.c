@@ -6,21 +6,23 @@
 /*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 19:38:35 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/31 21:05:53 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/31 22:23:30 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	rearrange(char *stash)
+void	rearrange(char *stash, int fact)
 {
 	int		i;
 	int		j;
 	char	temp[BUFFER_SIZE + 1];
 
+	if (fact)
+		stash[0] = 0;
 	i = 0;
 	j = 0;
-	while (stash[i] != '\n' && stash[i])
+	while ((stash[i - 1] != '\n' && stash[i]) || stash[i])
 		i++;
 	while (stash[i])
 	{

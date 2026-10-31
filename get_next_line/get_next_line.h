@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 20:11:09 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/25 19:27:50 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/31 20:49:01 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,16 @@
 # include <unistd.h>
 # include <stdio.h>
 
+# ifndef FD_MAX
+#  define FD_MAX 1024
+# endif
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
 # endif
 
 char		*get_next_line(int fd);
+ssize_t		check_read(int fd, char *stash);
+void		rearrange(char *stash);
 
 #endif

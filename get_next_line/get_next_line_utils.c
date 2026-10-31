@@ -6,38 +6,46 @@
 /*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 19:38:35 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/28 11:33:19 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/10/31 21:05:53 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int	ft_strlen(char *s)
+void	rearrange(char *stash)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	temp[BUFFER_SIZE + 1];
 
 	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
+	j = 0;
+	while (stash[i] != '\n' && stash[i])
 		i++;
-	return (i);
-}
-
-int	ft_strrchr(const char *s, int c)
-{
-	size_t	i;
-	char	*p;
-
-	i = 0;
-	p = (char *)s;
-	while (i <= (size_t)ft_strlen(p) - 1)
+	while (stash[i])
 	{
-		if ((unsigned char)p[i] == (unsigned char)c)
-		{
-			return ((int)i);
-		}
+		temp[j] = stash[i];
+		j++;
 		i++;
 	}
-	return (-1);
+	temp[j] = '\0';
+	i = 0;
+	while (temp[i])
+	{
+		stash[i] = temp[i];
+		i++;
+	}
+	stash[i] = '\0';
+}
+
+ssize_t	check_read(int fd, char *stash)
+{
+	ssize_t	n;
+
+	if (stash[0])
+		return (1);
+	n = read(fd, stash, BUFFER_SIZE);
+	if (n > 0)
+		stash[n] = '\0';
+	return (n);
 }

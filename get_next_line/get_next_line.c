@@ -3,73 +3,100 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/24 20:10:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/28 11:37:57 by zchauve          ###   ########.ch       */
+/*   Created: 2026/10/29 14:43:44 by zchauve           #+#    #+#             */
+/*   Updated: 2026/10/29 14:43:51 by zchauve          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int	ft_strlen(char *s)
+static size_t	ft_strlen(const char *s)
 {
-	int	i;
+	char	*p;
+	size_t	i;
 
 	i = 0;
 	if (!s)
 		return (0);
-	while (s[i])
+	p = (char *)s;
+	while (p[i])
 		i++;
 	return (i);
 }
 
-static char	*freeing(char *buff)
+static char	*ft_strjoin(char const *s1, char const *s2)
 {
-	free(buff);
+	char	*s3;
+	size_t	tot_size;
+	size_t	i;
+	size_t	j;
+
+	if (s2)
+	{
+		tot_size = ft_strlen((char *)s1) + ft_strlen((char *)s2);
+		s3 = (char *)malloc(sizeof(char) * (tot_size + 1));
+		if (!s3)
+			return (NULL);
+		i = 0;
+		j = -1;
+		if (s1)
+		{
+			while (s1[++j])
+				s3[i++] = s1[j];
+			j = -1;
+		}
+		while (s2[++j] && s2[j - 1] != '\n')
+			s3[i++] = s2[j];
+		s3[i] = '\0';
+		return (s3);
+	}
 	return (NULL);
 }
 
-static char	*alloc_dup(char *buff, char *buffer)
+static char	*allouette(char *stash, char *buff)
 {
-	int	i;
-	int	len;
-	int	blen;
+	if (stash == NULL)
+		stash = ft_strjoin(stash, buff);
+	return (stash);
+}
+
+static int	ft_strrchr(const char *s, int c)
+{
+	size_t	i;
+	char	*p;
 
 	i = 0;
-	blen = ft_strlen(buffer);
-	len = ft_strrchr(buff, '\n');
-	if (ft_strrchr(buff, '\n') < 0)
-		len = ft_strlen(buff) - 1;
-	buffer = malloc(sizeof(char) * (blen + len) + 1);
-	if (!buffer)
-		return (freeing(buffer));
-	while (i < len)
+	p = (char *)s;
+	while (i <= (size_t)ft_strlen(p) - 1)
 	{
-		buffer[blen + i] = buff[i];
-		printf("buffer=%s, buff[i]=%c, buffer[blen + i]=%c, blen=%d, len=%d, i=%d\n", buffer, buff[i], buffer[blen + i], blen, len, i);
+		if ((unsigned char)p[i] == (unsigned char)c)
+		{
+			return ((int)i);
+		}
 		i++;
 	}
-	return (buffer);
+	return (-1);
 }
 
 char	*get_next_line(int fd)
 {
-	char		buff[BUFFER_SIZE];
-	char	*buffer;
+	char		*buff;
+	static char	*stash;
+	//char		*lign;
 
-	if (BUFFER_SIZE > 0 && fd > 0)
+	if (!stash)
+		stash = NULL;
+	if (fd > 0 && BUFFER_SIZE > 0)
 	{
-		while (read(fd, buff, BUFFER_SIZE))
+		buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		if (!buff)
+			return (free(stash), NULL);
+		while (read(fd, buff, BUFFER_SIZE) > 0)
 		{
-		if (ft_strrchr(buff, '\0') >=0  && ft_strrchr(buff, '\n') >= 0
-				&& (ft_strrchr(buff, '\0') < ft_strrchr(buff, '\n')))
-			return (NULL);
-		if (ft_strrchr(buff, '\0') >=0 && ft_strrchr(buff, '\n') < 0)
-			return (NULL);
-		if (ft_strrchr(buff, '\n') >= 0)
-			return (alloc_dup(buff, buffer));
-		buffer = alloc_dup(buff, buffer);
+			if (ft_strrchr(buff, '\n'))
+				return (allouette(stash, buff));
 		}
 	}
 	return (NULL);

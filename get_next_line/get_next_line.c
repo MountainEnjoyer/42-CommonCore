@@ -15,14 +15,12 @@
 
 static size_t	ft_strlen(char *s)
 {
-	char	*p;
 	size_t	i;
 
 	i = 0;
 	if (!s)
 		return (0);
-	p = (char *)s;
-	while (p[i])
+	while (s[i])
 		i++;
 	return (i);
 }
@@ -51,44 +49,39 @@ static char	*ft_strjoin(char *s1, char *stash)
 	}
 	return (NULL);
 }
-
+/*
 static int	ft_strrchr(const char *s, int c)
 {
 	size_t	i;
 	char	*p;
 
 	i = 0;
+	if (!s)
+		return (-1);
 	p = (char *)s;
 	while (p[i])
 	{
 		if ((unsigned char)p[i] == (unsigned char)c)
-		{
 			return ((int)i);
-		}
 		i++;
 	}
 	return (-1);
-}
+}*/
 
 char	*get_next_line(int fd)
 {
 	char		*lign;
 	static char	stash[BUFFER_SIZE + 1];
 
+	lign = NULL;
 	if (fd > 0 && fd < FD_MAX && BUFFER_SIZE > 0)
 	{
 		while (check_read(fd, stash) > 0)
 		{
-			if (ft_strrchr(stash, '\n'))
-			{
-				lign = ft_strjoin(lign, stash);
-				return (rearrange(stash, 0), lign);
-			}
-			else
-			{
-				lign = ft_strjoin(lign, stash);
-				rearrange(stash, 1);
-			}
+			lign = ft_strjoin(lign, stash);
+			if (lign[ft_strlen(lign) - 1] == '\n')
+				return (rearrange(stash),lign);
+			stash[0] = 0;
 		}
 	}
 	return (NULL);

@@ -12,17 +12,24 @@
 
 #include "get_next_line.h"
 
-void	rearrange(char *stash, int fact)
+void	clear(char *stash)
+{
+	int	i;
+
+	i = 0;
+	free(stash);
+	stash = NULL;
+}
+
+void	rearrange(char *stash)
 {
 	int		i;
 	int		j;
 	char	temp[BUFFER_SIZE + 1];
 
-	if (fact)
-		stash[0] = 0;
 	i = 0;
 	j = 0;
-	while ((stash[i - 1] != '\n' && stash[i]))
+	while ((stash[i] != '\n' && stash[i]))
 		i++;
 	while (stash[i])
 	{
@@ -32,7 +39,7 @@ void	rearrange(char *stash, int fact)
 	}
 	temp[j] = '\0';
 	i = 0;
-	while (temp[i])
+	while (i < j)
 	{
 		stash[i] = temp[i];
 		i++;

@@ -29,6 +29,7 @@
 
 char		*get_next_line(int fd);
 ssize_t		check_read(int fd, char *stash);
-void		rearrange(char *stash, int fact);
+void		rearrange(char *stash);
+void		clear(char *stash);
 
 #endif

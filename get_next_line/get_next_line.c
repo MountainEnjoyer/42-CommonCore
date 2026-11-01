@@ -53,7 +53,6 @@ static char	*ft_strjoin(char *s1, char *stash)
 char	*get_next_line(int fd)
 {
 	char		*lign;
-	char		*temp;
 	static char	stash[BUFFER_SIZE + 1];
 
 	lign = NULL;
@@ -62,6 +61,8 @@ char	*get_next_line(int fd)
 		while (check_read(fd, stash) > 0)
 		{
 			lign = ft_strjoin(lign, stash);
+			if (lign == NULL)
+				return (NULL);
 			if (lign[ft_strlen(lign) - 1] == '\n')
 				return (rearrange(stash), lign);
 			rearrange(stash);

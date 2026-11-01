@@ -64,7 +64,7 @@ char	*get_next_line(int fd)
 		{
 			lign = ft_strjoin(lign, stash);
 			if (lign == NULL)
-				return (NULL);
+				return (free(lign), NULL);
 			if (lign[ft_strlen(lign) - 1] == '\n')
 				return (rearrange(stash), lign);
 			rearrange(stash);

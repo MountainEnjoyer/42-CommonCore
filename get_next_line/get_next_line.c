@@ -49,28 +49,11 @@ static char	*ft_strjoin(char *s1, char *stash)
 	}
 	return (NULL);
 }
-/*
-static int	ft_strrchr(const char *s, int c)
-{
-	size_t	i;
-	char	*p;
-
-	i = 0;
-	if (!s)
-		return (-1);
-	p = (char *)s;
-	while (p[i])
-	{
-		if ((unsigned char)p[i] == (unsigned char)c)
-			return ((int)i);
-		i++;
-	}
-	return (-1);
-}*/
 
 char	*get_next_line(int fd)
 {
 	char		*lign;
+	char		*temp;
 	static char	stash[BUFFER_SIZE + 1];
 
 	lign = NULL;
@@ -78,9 +61,12 @@ char	*get_next_line(int fd)
 	{
 		while (check_read(fd, stash) > 0)
 		{
-			lign = ft_strjoin(lign, stash);
+			temp = ft_strjoin(lign, stash);
+			free(lign);
+			lign = temp;
+			free(temp);
 			if (lign[ft_strlen(lign) - 1] == '\n')
-				return (rearrange(stash),lign);
+				return (rearrange(stash), lign);
 			rearrange(stash);
 		}
 	}

@@ -54,11 +54,13 @@ char	*get_next_line(int fd)
 {
 	char		*lign;
 	static char	stash[BUFFER_SIZE + 1];
+	int			n;
 
 	lign = NULL;
 	if (fd > 0 && fd < FD_MAX && BUFFER_SIZE > 0)
 	{
-		while (check_read(fd, stash) > 0)
+		n = check_read(fd, stash);
+		while (n > 0)
 		{
 			lign = ft_strjoin(lign, stash);
 			if (lign == NULL)

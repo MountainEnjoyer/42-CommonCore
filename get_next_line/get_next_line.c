@@ -81,7 +81,7 @@ char	*get_next_line(int fd)
 			lign = ft_strjoin(lign, stash);
 			if (lign[ft_strlen(lign) - 1] == '\n')
 				return (rearrange(stash),lign);
-			stash[0] = 0;
+			rearrange(stash);
 		}
 	}
 	return (NULL);

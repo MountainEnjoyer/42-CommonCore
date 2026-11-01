@@ -17,8 +17,8 @@ void	clear(char *stash)
 	int	i;
 
 	i = 0;
-	free(stash);
-	stash = NULL;
+	while (stash[i])
+		stash[i++] = '\0';
 }
 
 void	rearrange(char *stash)
@@ -29,7 +29,7 @@ void	rearrange(char *stash)
 
 	i = 0;
 	j = 0;
-	while ((stash[i] != '\n' && stash[i]))
+	while (stash[i] && stash[i - 1] != '\n')
 		i++;
 	while (stash[i])
 	{

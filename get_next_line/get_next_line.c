@@ -68,6 +68,7 @@ char	*get_next_line(int fd)
 			if (lign[ft_strlen(lign) - 1] == '\n')
 				return (rearrange(stash), lign);
 			rearrange(stash);
+			n = check_read(fd, stash);
 		}
 	}
 	return (NULL);

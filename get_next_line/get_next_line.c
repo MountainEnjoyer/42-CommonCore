@@ -61,10 +61,7 @@ char	*get_next_line(int fd)
 	{
 		while (check_read(fd, stash) > 0)
 		{
-			temp = ft_strjoin(lign, stash);
-			free(lign);
-			lign = temp;
-			free(temp);
+			lign = ft_strjoin(lign, stash);
 			if (lign[ft_strlen(lign) - 1] == '\n')
 				return (rearrange(stash), lign);
 			rearrange(stash);

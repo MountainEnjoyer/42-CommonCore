@@ -6,7 +6,7 @@
 /*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 14:43:44 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/02 14:06:05 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/02 14:13:32 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,28 +67,27 @@ static char	*ft_strjoin(char *s1, char *stash)
 char	*get_next_line(int fd)
 {
 	char		*lign;
-	static char	stash[BUFFER_SIZE + 1];
+	static char	stash[FD_MAX][BUFFER_SIZE + 1];
 	int			n;
+	int			blen;
 
 	lign = NULL;
 	if (fd >= 0 && fd < FD_MAX && BUFFER_SIZE > 0)
 	{
-		n = check_read(fd, stash);
+		n = check_read(fd, stash[fd]);
 		while (n > 0)
 		{
-			lign = ft_strjoin(lign, stash);
+			blen = ft_buflen(stash[fd]);
+			lign = ft_strjoin(lign, stash[fd]);
 			if (lign == NULL)
 				return (NULL);
-			if (ft_buflen(stash) > 0 && stash[ft_buflen(stash) - 1] == '\n')
-				return (rearrange(stash), lign);
-			rearrange(stash);
-			n = check_read(fd, stash);
+			if (blen > 0 && stash[fd][blen - 1] == '\n')
+				return (rearrange(stash[fd]), lign);
+			rearrange(stash[fd]);
+			n = check_read(fd, stash[fd]);
 		}
 		if (n < 0)
-		{
-			free(lign);
-			lign = NULL;
-		}
+			return (free(lign), NULL);
 	}
 	return (lign);
 }

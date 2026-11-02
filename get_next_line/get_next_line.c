@@ -6,7 +6,7 @@
 /*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 14:43:44 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/02 13:52:18 by Ben              ###   ########.fr       */
+/*   Updated: 2026/11/02 14:04:24 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ char	*get_next_line(int fd)
 			lign = ft_strjoin(lign, stash);
 			if (lign == NULL)
 				return (NULL);
-			// if (lign[ft_strlen(lign) - 1] == '\n' || (n < BUFFER_SIZE && n > 0))
 			if (ft_buflen(stash) > 0 && stash[ft_buflen(stash) - 1] == '\n')
 				return (rearrange(stash), lign);
 			rearrange(stash);

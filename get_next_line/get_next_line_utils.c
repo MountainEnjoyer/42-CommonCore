@@ -6,7 +6,7 @@
 /*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 19:38:35 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/02 13:57:52 by Ben              ###   ########.fr       */
+/*   Updated: 2026/11/02 14:04:40 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,6 @@ void	clear(char *stash)
 	while (stash[i])
 		stash[i++] = '\0';
 }
-
-// void	rearrange(char *stash)
-// {
-// 	int		i;
-// 	size_t	buflen;
-
-// 	i = 0;
-// 	buflen = ft_buflen(stash);
-// 	while (stash[buflen + i])
-// 	{
-// 		stash[i] = stash[buflen + i];
-// 		i++;
-// 	}
-// 	stash[i] = '\0';
-// }
 
 void	rearrange(char *stash)
 {

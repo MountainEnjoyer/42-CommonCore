@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 20:11:09 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/31 21:45:18 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/02 13:52:51 by Ben              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ char		*get_next_line(int fd);
 ssize_t		check_read(int fd, char *stash);
 void		rearrange(char *stash);
 void		clear(char *stash);
+size_t		ft_buflen(char *s);
 
 #endif

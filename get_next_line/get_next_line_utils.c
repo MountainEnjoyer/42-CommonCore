@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zchauve <zchauve@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 19:38:35 by zchauve           #+#    #+#             */
-/*   Updated: 2026/10/31 23:24:42 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/02 13:57:52 by Ben              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,39 @@ void	clear(char *stash)
 		stash[i++] = '\0';
 }
 
+// void	rearrange(char *stash)
+// {
+// 	int		i;
+// 	size_t	buflen;
+
+// 	i = 0;
+// 	buflen = ft_buflen(stash);
+// 	while (stash[buflen + i])
+// 	{
+// 		stash[i] = stash[buflen + i];
+// 		i++;
+// 	}
+// 	stash[i] = '\0';
+// }
+
 void	rearrange(char *stash)
 {
 	int		i;
 	int		j;
-	char	temp[BUFFER_SIZE + 1];
 
 	i = 0;
 	j = 0;
-	while (stash[i] && stash[i - 1] != '\n')
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	if (stash[i] == '\n')
 		i++;
 	while (stash[i])
 	{
-		temp[j] = stash[i];
+		stash[j] = stash[i];
 		j++;
 		i++;
 	}
-	temp[j] = '\0';
-	i = 0;
-	while (i < j)
-	{
-		stash[i] = temp[i];
-		i++;
-	}
-	stash[i] = '\0';
+	stash[j] = '\0';
 }
 
 ssize_t	check_read(int fd, char *stash)

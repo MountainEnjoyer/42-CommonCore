@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/29 14:43:44 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/01 16:30:20 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/02 10:37:05 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*ft_strjoin(char *s1, char *stash)
 	{
 		s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(stash) + 1));
 		if (!s3)
-			return (NULL);
+			return (free(s3), NULL);
 		i = 0;
 		j = -1;
 		if (s1)
@@ -45,6 +45,7 @@ static char	*ft_strjoin(char *s1, char *stash)
 		while (stash[++j] && stash[j - 1] != '\n')
 			s3[i++] = stash[j];
 		s3[i] = '\0';
+		free(s1);
 		return (s3);
 	}
 	return (NULL);

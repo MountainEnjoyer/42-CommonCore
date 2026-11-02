@@ -12,15 +12,6 @@
 
 #include "get_next_line.h"
 
-void	clear(char *stash)
-{
-	int	i;
-
-	i = 0;
-	while (stash[i])
-		stash[i++] = '\0';
-}
-
 void	rearrange(char *stash)
 {
 	int		i;

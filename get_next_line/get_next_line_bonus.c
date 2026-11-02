@@ -45,23 +45,21 @@ static char	*ft_strjoin(char *s1, char *stash)
 	size_t	i;
 	size_t	j;
 
-	if (stash)
-	{
-		s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_buflen(stash) + 1));
-		if (!s3)
-			return (free(s1), NULL);
-		i = 0;
-		j = -1;
-		if (s1)
-			while (s1[++j])
-				s3[i++] = s1[j];
-		j = -1;
-		while (stash[++j] && stash[j - 1] != '\n')
-			s3[i++] = stash[j];
-		s3[i] = '\0';
-		return (free(s1), s3);
-	}
-	return (free(s1), NULL);
+	if (!stash)
+		return (free(s1), NULL);
+	s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_buflen(stash) + 1));
+	if (!s3)
+		return (free(s1), NULL);
+	i = 0;
+	j = -1;
+	if (s1)
+		while (s1[++j])
+			s3[i++] = s1[j];
+	j = -1;
+	while (stash[++j] && stash[j - 1] != '\n')
+		s3[i++] = stash[j];
+	s3[i] = '\0';
+	return (free(s1), s3);
 }
 
 char	*get_next_line(int fd)
